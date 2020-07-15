@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>API 연습</title>
+</head>
+<body>
+	<h1>내 사이트입니다아아앙아ㅏ</h1>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.ajax({
+			method : "GET",
+			url : "https://openapi.naver.com/v1/search/encyc.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim",
+			data : { query : "컴퓨터" }
+			X-Naver-Client-Id: {dc8f1q41qcRkkMrT0abk}
+		 	X-Naver-Client-Secret: {mX6xlacNY0}
+		}).done(function(msg) {
+			alert("Data Saved: " + msg);
+		});
+	</script>
+</body>
+</html>

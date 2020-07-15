@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>API 연습</title>
+</head>
+<body>
+	<h1>내 사이트입니다아아앙아ㅏ</h1>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.ajax({
+			method : "GET",
+			url : "https://openapi.naver.com/v1/search/encyc.json",
+			data : { query : "컴퓨터" },
+			headers: {X_Naver_Client_Id: "dc8f1q41qcRkkMrT0abk"}
+			headers: {X_Naver_Client_Secret: "mX6xlacNY0"}
+		}).done(function(msg) {
+			console.log(msg);
+			$("#result").html(msg.documents[0].title+"<br>"+msg.documents[0].contents);
+		});
+	</script>
+</body>
+
+<div id="result"></div>
+
+</html>

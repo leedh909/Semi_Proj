@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>API 연습</title>
+</head>
+<body>
+	<h1>내 사이트입니다아아앙아ㅏ</h1>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.ajax({
+			method : "GET",
+			url : "https://dapi.kakao.com/v2/search/web",
+			data : { query : "이효리" },
+			headers: {Authorization: "KakaoAK c82a6e753205b3c433334dc49924f8c5"}
+		}).done(function(msg) {
+			console.log(msg);
+		});
+	</script>
+</body>
+</html>

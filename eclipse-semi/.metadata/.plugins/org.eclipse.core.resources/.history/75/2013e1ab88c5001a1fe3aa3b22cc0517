@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title> Insert title here </title>
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/hamburgers.min.css">
+    <link rel="stylesheet" href="../assets/css/gijgo.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/animated-headline.css">
+	<link rel="stylesheet" href="../assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="../assets/css/themify-icons.css">
+	<link rel="stylesheet" href="../assets/css/slick.css">
+	<link rel="stylesheet" href="../assets/css/nice-select.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/posts.css" />
+	<link rel="stylesheet" href="../assets/css/logostyle.css">
+	<link rel="stylesheet" href="../assets/css/table.css">
+</head>
+<style type="text/css">
+	.table_th{
+		padding: 20px 30px;
+		font-size: 20pt;
+	}
+</style>
+<body>
+
+</body>
+</html>

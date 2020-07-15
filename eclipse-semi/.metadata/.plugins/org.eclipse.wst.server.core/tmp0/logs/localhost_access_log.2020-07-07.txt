@@ -1,0 +1,12 @@
+127.0.0.1 - - [07/Jul/2020:13:59:36 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:13:59:45 +0900] "GET /JSP_DEV/MainForm.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:13:59:46 +0900] "GET /JSP_DEV/member/view/LoginForm.jsp HTTP/1.1" 200 1336
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:13:59:46 +0900] "GET /JSP_DEV/img/welcome.jpg HTTP/1.1" 200 6365
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:13:59:46 +0900] "GET /JSP_DEV/css/join_style.css HTTP/1.1" 200 253
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:13:59:52 +0900] "GET /JSP_DEV/member/view/JoinForm.jsp HTTP/1.1" 200 3679
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:14:00:02 +0900] "GET /JSP_DEV/member/view/JoinForm.jsp HTTP/1.1" 200 3679
+127.0.0.1 - - [07/Jul/2020:14:08:52 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:14:08:54 +0900] "GET /JSP_DEV/MainForm.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:14:08:54 +0900] "GET /JSP_DEV/member/view/LoginForm.jsp HTTP/1.1" 200 1336
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:14:08:54 +0900] "GET /JSP_DEV/css/join_style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Jul/2020:14:08:54 +0900] "GET /JSP_DEV/img/welcome.jpg HTTP/1.1" 304 -

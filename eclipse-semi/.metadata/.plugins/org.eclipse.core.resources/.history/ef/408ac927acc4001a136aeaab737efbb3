@@ -1,0 +1,9 @@
+<?php
+	header("Content-Type: text/html; charset=UTF-8");
+	
+	require_once "naverEncycApi.php";
+	
+	$encyc = new Encyc();
+	
+	echo $encyc->getEncycSearch($_POST['query']);
+?>

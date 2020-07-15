@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 10 elements to &apos;WebContent&apos;&#x0D;&#x0A;- Original project: &apos;nitro2-master&apos;&#x0D;&#x0A;- Destination element: &apos;WebContent&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     index.html&#x0D;&#x0A;     main.html&#x0D;&#x0A;     prepros-6.config&#x0D;&#x0A;     readme.txt&#x0D;&#x0A;     single.html&#x0D;&#x0A;     scss&#x0D;&#x0A;     js&#x0D;&#x0A;     css&#x0D;&#x0A;     fonts&#x0D;&#x0A;     images" description="Copy elements" element1="index.html" element10="images" element2="main.html" element3="prepros-6.config" element4="readme.txt" element5="single.html" element6="scss" element7="js" element8="css" element9="fonts" files="5" flags="589830" folders="5" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1594611293388" target="/test2/WebContent" units="0" version="1.0"/>
+</session>

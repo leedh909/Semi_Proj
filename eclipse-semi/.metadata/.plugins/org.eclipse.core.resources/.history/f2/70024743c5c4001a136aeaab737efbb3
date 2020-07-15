@@ -1,0 +1,101 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/hamburgers.min.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/posts.css" />
+</head>
+<body>
+	<!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+     <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-10">
+							<div class="main-menu black-menu menu-bg-white d-none d-lg-block">
+								<div class="hamburger hamburger--collapse">
+									<div class="hamburger-box">
+										<div class="hamburger-inner"></div>
+									</div>
+								</div>
+								<nav class="hamburger-menu">
+									<ul id="navigation">
+										<li><a href="index.html">Home</a></li>
+										<li>
+											<a href="#">Tutorial</a>
+											<ul class="submenu">
+                                                <li><a href="#">초급</a></li>
+                                                <li><a href="#">중급</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Guide</a>
+											<ul class="submenu">
+                                                <li><a href="#">부품별 추천</a></li>
+                                                <li><a href="#">가격비교</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Community</a>
+											<ul class="submenu">
+                                                <li><a href="#">Q&A</a></li>
+                                                <li><a href="#">IT news</a></li>
+                                                <li><a href="#">자유게시판</a></li>
+											</ul>
+										</li>
+										<li><a href="#">login?</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <!-- header end -->
+</body>
+</html>

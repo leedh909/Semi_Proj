@@ -1,0 +1,25 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import com.dto.WordDto;
+
+import common.JDBCTemplate;
+
+public class WordDao extends JDBCTemplate{
+
+	public List<WordDto> selectAll(){
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<AnswerDto> res = new ArrayList<AnswerDto>();
+		String sql = "SELECT * FROM ANSWERBOARD ORDER BY GROUPNO DESC, GROUPSQ";
+		
+		return null;
+	}
+	
+	
+}

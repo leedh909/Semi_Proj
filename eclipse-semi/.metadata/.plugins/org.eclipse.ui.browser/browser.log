@@ -1,0 +1,29 @@
+
+7월 10, 2020 14:12:33.77 NEW SESSION
+7월 10, 2020 14:12:33.77 [9368:15728:0710/141233.768:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:12:34.77 [9368:15728:0710/141234.772:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:12:36.10 [9368:15728:0710/141236.108:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:12:59.62 [9368:15728:0710/141259.628:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:13:30.63 [9368:15728:0710/141330.634:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:13:56.04 [9368:15728:0710/141356.047:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:14:31.63 [9368:15728:0710/141431.628:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:14:40.74 [9368:15728:0710/141440.743:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:15:09.64 [9368:15728:0710/141509.643:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 14:15:33.95 [9368:15728:0710/141533.957:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.914 s for first_image_paint 0.864 s
+7월 10, 2020 15:17:15.61 [9368:1740:0710/151715.616:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 10, 2020 16:53:16.56 [9368:1740:0710/165316.568:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 10, 2020 16:53:23.06 [9368:15120:0710/165323.061:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+
+7월 14, 2020 08:23:33.50 NEW SESSION
+7월 14, 2020 08:23:33.50 [14808:4572:0714/082333.491:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 14, 2020 11:31:39.27 [18788:2156:0714/113139.277:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 14, 2020 11:59:13.99 [18788:14112:0714/115913.992:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 14, 2020 15:18:09.42 [116:14644:0714/151809.421:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 14, 2020 18:18:10.99 [116:14644:0714/181810.994:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 14, 2020 18:18:11.41 [116:14644:0714/181811.056:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 14, 2020 18:18:11.46 [116:22764:0714/181811.102:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 14, 2020 18:18:14.37 [116:14644:0714/181814.377:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 15, 2020 07:42:57.45 [116:14644:0715/074257.449:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 15, 2020 07:43:00.65 [116:22764:0715/074300.651:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 15, 2020 11:30:03.02 [900:5056:0715/113003.021:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 15, 2020 12:05:50.71 [900:20096:0715/120550.712:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
