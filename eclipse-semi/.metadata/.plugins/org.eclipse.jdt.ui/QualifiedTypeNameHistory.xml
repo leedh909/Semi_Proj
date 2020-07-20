@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="jdk.nashorn.internal.parser.JSONParser"/>
-<fullyQualifiedTypeName name="org.apache.tomcat.util.json.JSONParser"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="common.JDBCTemplate"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-</qualifiedTypeNameHistroy>
