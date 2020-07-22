@@ -13,7 +13,7 @@
 		document.getElementsByName("id")[0].value = id;
 	}
 	function confirm(bool){
-		if(bool=="true"){
+		if(bool==true){
 			opener.document.getElementsByName("pw")[0].focus();
 			opener.document.getElementsByName("id")[0].title="y";
 		} else {

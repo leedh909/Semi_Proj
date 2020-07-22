@@ -60,7 +60,7 @@
 						<li>
 							<a href="#">Community</a>
 							<ul class="submenu">
-                                            <li><a href="#">Q&A</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/ViewController?command=QNAlist">Q&A</a></li>
                                             <li><a href="${pageContext.request.contextPath}/ViewController?command=itnews">IT news</a></li>
                                             <li><a href="${pageContext.request.contextPath}/ViewController?command=boardlist">자유게시판</a></li>
 							</ul>
@@ -71,15 +71,15 @@
 							%>
 								<a href="#">Info</a>
 								<ul class="submenu">
-									<li><a href="login.do?command=loginform">Login</a></li>
-                                  	<li><a href="login.do?command=registform">Join</a></li>
+									<li><a href="${pageContext.request.contextPath}/login.do?command=loginform">Login</a></li>
+                                  	<li><a href="${pageContext.request.contextPath}/login.do?command=registform">Join</a></li>
                                 </ul>
 							<%
 								} else {
 							%>
 								<a href="#">My Page</a>
 								<ul class="submenu">
-									<li><a href="login.do?command=logout">Logout</a></li>
+									<li><a href="${pageContext.request.contextPath}/login.do?command=logout">Logout</a></li>
 									<li><a href="">찜한 pc</a></li>
 									<li><a href="">내가 쓴 글</a></li>
 								</ul>

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.AnswerDao;
 import com.dao.BoardDao;
+import com.dto.AnswerDto;
 import com.dto.BoardDto;
 
 @WebServlet("/ViewController")
@@ -50,6 +52,15 @@ public class ViewController extends HttpServlet {
 			response.sendRedirect("Low_Spec.jsp");
 		}else if(command.equals("itnews")) {
 			response.sendRedirect("It_news.jsp");
+		}else if(command.equals("QNAlist")) {
+			
+			AnswerDao dao = new AnswerDao();
+			List<AnswerDto> list = dao.selectAll();
+			request.setAttribute("list", list);
+			RequestDispatcher dispath = request.getRequestDispatcher("QNAlist.jsp");
+			dispath.forward(request, response);
+			
+
 		}
 
 	}

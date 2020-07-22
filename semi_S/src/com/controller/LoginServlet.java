@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
+		
 		if(command.equals("loginform")) {
 			response.sendRedirect("login.jsp");
 		} else if(command.equals("login")) {
@@ -113,6 +114,90 @@ public class LoginServlet extends HttpServlet {
 		} else if(command.equals("mypage")) {
 
 			response.sendRedirect("mypage.jsp");
+		} else if(command.equals("kakaologin")) {
+			
+			String pw = request.getParameter("id");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String id = email.split("@")[0]+"@k";
+			
+			String chk = ldao.idchk(id);
+			
+			if(chk!=null) {
+				request.getSession().setAttribute("login", id);
+				System.out.println(id);
+				jsResponse(name + " 님 환영합니다~(카카오로 로그인하셨습니다.!)", "index.jsp", response);
+				
+			}else {
+				
+				ldto = new LoginDto();
+				ldto.setId(id);
+				ldto.setName(name);
+				ldto.setPw(pw);
+				ldto.setEmail(email);
+				
+				ldao = new LoginDao();
+				
+				int res = ldao.registUser(ldto);
+				
+				if(res>0) {
+					request.getSession().setAttribute("login", id);
+					System.out.println(id);
+					jsResponse(name + " 님 환영합니다~(카카오로 로그인하셨습니다.)", "index.jsp", response);
+					System.out.println("회원가입 성공!!");
+					
+				} else {
+					jsResponse("회원가입 실패 ㅠㅠ", "login.do?command=loginform", response);
+					System.out.println("회원가입 실패!!");
+					
+				}
+				
+			}
+		}else if(command.equals("naverlogin")) {
+			
+			String pw = request.getParameter("id");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String id = email.split("@")[0]+"@n";
+			
+			System.out.println(pw);
+			System.out.println(name);
+			System.out.println(email);
+			System.out.println(id);
+			
+			String chk = ldao.idchk(id);
+			
+			if(chk!=null) {
+				request.getSession().setAttribute("login", id);
+				System.out.println(id);
+				jsResponse(name + " 님 환영합니다~(네이버로 로그인하셨습니다.!)", "index.jsp", response);
+				
+			}else {
+				
+				ldto = new LoginDto();
+				ldto.setId(id);
+				ldto.setName(name);
+				ldto.setPw(pw);
+				ldto.setEmail(email);
+				
+				ldao = new LoginDao();
+				
+				int res = ldao.registUser(ldto);
+				
+				if(res>0) {
+					request.getSession().setAttribute("login", id);
+					System.out.println(id);
+					jsResponse(name + " 님 환영합니다~(네이버로 로그인하셨습니다.)", "index.jsp", response);
+					System.out.println("회원가입 성공!!");
+					
+				} else {
+					jsResponse("회원가입 실패 ㅠㅠ", "login.do?command=loginform", response);
+					System.out.println("회원가입 실패!!");
+					
+				}
+				
+			}
+			
 		}
 		
 	}

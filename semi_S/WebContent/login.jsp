@@ -44,7 +44,7 @@
 		margin-top: 50px;
 		margin-left:auto;
 		margin-right: auto;
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 	}
 	
 
@@ -92,8 +92,26 @@
 					</td>
 				</tr>
 			</table>
-		</div>
-	</form>
+			</div>
+		</form>	
+			<!-- kakao login -->
+			<div style="padding:5px; text-align: center;">
+			<a id="login-form-btn" href="javascript:loginFormWithKakao()">
+			  <img
+			    src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+			    width="222"
+			  />
+			</a>
+			</div>
+			
+			<!-- naver login -->
+			<div style="padding:5px; text-align: center;">
+			<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+  				<div id="naverIdLogin"></div>
+			</div>
+				
+		
+	
 	 <div> 
 		<jsp:include page="footer.jsp" />
 	</div>
@@ -102,8 +120,68 @@
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
 
-    <!-- JS here -->
+	<!-- naver JS -->
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "6HcRMEX_SvRjjW_I5EZz",
+			callbackUrl: "http://localhost:8282/semi_S/navercallback2.jsp",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 48} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+	</script>
 
+    <!-- kakao JS -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript">
+	  // 웹 플랫폼 도메인 등 초기화한 앱의 설정이 그대로 적용됩니다.
+	  // 초기화한 앱에 현재 도메인이 등록되지 않은 경우 에러가 발생합니다.
+	  Kakao.init('2db33b6d7020a1e6200dbb653c7c9cf7')
+	  /* function loginWithKakao() {
+        Kakao.Auth.authorize({
+          // 초기화한 앱의 로그인 Redirect URI에 등록된 URI여야 합니다.
+          redirectUri: 'http://localhost:8282/semi_S/header.jsp'
+        })
+      } */
+	  function loginFormWithKakao() {
+		  Kakao.Auth.loginForm({
+		    	success: function(authObj){
+		    		
+		    		Kakao.API.request({
+		   			 	url: '/v2/user/me',
+		 	            success: function(res) {
+		 	            	
+		 	            	var id = res.id;
+		 	            	var email = res.kakao_account["email"];
+		 	            	var name = res.properties["nickname"];
+		 	            	
+/* 		 	            	alert(res.id);
+		 	                alert(res.properties["nickname"]);
+		 	                alert(res.kakao_account["email"]);
+ */		 	                
+		 	            	location.href= '${pageContext.request.contextPath}/login.do?command=kakaologin&id='+id+'&email='+email+'&name='+name;
+		 	            	
+		 	            }
+		    		})
+		    		/* console.log(authObj); */
+		    		var token = authObj.access_token;
+		    		
+		    	},
+		    	fail: function(err){
+		    		alert(JSON.stringify(err));
+		    	}
+		    });
+	  }
+	  
+	</script>
+	<!-- JS here -->
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
