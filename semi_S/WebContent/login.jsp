@@ -31,7 +31,68 @@
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v7.0&appId=613300902645097&autoLogAppEvents=1" nonce="L9czDdZh"></script>
+
 <script type="text/javascript">
+	function statusChangeCallback(response) { 
+	// response 객체는 현재 로그인 상태를 나타내는 정보를 보여준다. 
+	// FB.getLoginStatus().의 레퍼런스에서 더 자세한 내용이 참조 가능하다. 
+		if (response.status === 'connected') { 
+			// 페이스북을 통해서 로그인이 되어있다. 
+			testAPI(); 
+		}
+	}
+	
+	function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});
+	}
+	
+	window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '613300902645097',
+	      cookie     : true,                     // Enable cookies to allow the server to access the session.
+	      xfbml      : true,                     // Parse social plugins on this webpage.
+	      version    : 'v7.0'           // Use this Graph API version for this call.
+	    });
+	
+	
+	    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+	    	
+	    	statusChangeCallback(response);
+	      	console.log(response);
+	    });
+	    
+	};
+	
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id))
+			return;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk')); 
+	// 로그인이 성공한 다음에는 간단한 그래프API를 호출한다. 
+	// 이 호출은 statusChangeCallback()에서 이루어진다. 
+	
+	function testAPI() {
+		FB.api('/me',{"fields":"id,name,email"} , function(response) {
+			console.log('Successful login for: '+ response.name);
+			var id = response.id;
+			var name = response.name;
+         	var email = response.email;
+         	console.log(id);
+         	console.log(name);
+         	console.log(email);
+			FB.logout(function(response){});
+         	location.href= '${pageContext.request.contextPath}/login.do?command=facebooklogin&id='+id+'&email='+email+'&name='+name;
+		});
+	}
+	
 </script>
 <style type="text/css">
 	.table_th{
@@ -106,11 +167,16 @@
 			
 			<!-- naver login -->
 			<div style="padding:5px; text-align: center;">
-			<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+				<!-- 네이버아이디로로그인 버튼 노출 영역 -->
   				<div id="naverIdLogin"></div>
 			</div>
+			
+			<!-- facebook login -->
+			<div style="padding:5px; text-align: center;">
+				<div class="fb-login-button" onlogin="checkLoginState();" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+			</div>
 				
-		
+			<div></div>
 	
 	 <div> 
 		<jsp:include page="footer.jsp" />

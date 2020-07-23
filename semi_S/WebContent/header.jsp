@@ -77,11 +77,10 @@
 							<%
 								} else {
 							%>
-								<a href="#">My Page</a>
+								<a href="#">Info</a>
 								<ul class="submenu">
 									<li><a href="${pageContext.request.contextPath}/login.do?command=logout">Logout</a></li>
-									<li><a href="">찜한 pc</a></li>
-									<li><a href="">내가 쓴 글</a></li>
+									<li><a href="${pageContext.request.contextPath}/mypage.do?command=mypage">My Page</a></li>
 								</ul>
 							<%		
 									

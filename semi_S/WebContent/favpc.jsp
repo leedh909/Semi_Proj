@@ -4,6 +4,7 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>    
     
 <%@ page import="java.util.List" %>
+<%@ page import="com.dto.FavPcDto" %>
 
 <!DOCTYPE html>
 <html>
@@ -30,58 +31,28 @@
 <link rel="stylesheet" href="assets/css/table.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	function idChk(){
-		var doc = document.getElementsByName("id")[0];
-		
-		if(doc.value.trim()=="" || doc.value==null) {
-			alert("아이디를 입력해 주세요!");
-		} else {
-			if(!check(/^[a-zA-Z0-9]{3,11}$/, doc,"유효하지 않은 아이디입니다.")) {} 
-			
-			function check(chkid, checkValue, msg) {
-			
-				if(!chkid.test(checkValue.value)) {
-					alert(msg);
-					checkValue.value="";
-					checkValue.focus();
-					return false;
-					
-				} 
-				else {
-					var target = "login.do?command=idchk&id="+doc.value.trim();
-					open(target,"","width=500, height=200");
-					return true;
-				}
-			}
-		}
-	}
-	
-	function idChkConfirm(){
-		var chk=document.getElementsByName("id")[0].title;
-		if(chk=="n"){
-			alert("아이디 중복 체크를 먼저 해주세용~");
-			document.getElementsByName("id")[0].focus();
-		}
-	}
-	
-	
 </script>
 <style type="text/css">
 	.table_th{
+		text-align:center;
 		padding: 20px 30px;
 		border-bottom: 1px solid;
 		font-size: 20pt;
 	}
-	#registform{
-		display: table;
-		margin-left:auto;
-		margin-right: auto;
+	.favd {
+		color: black;
+	}
+	div#backbtn{
+		text-align:center;
 	}
 	
 </style>
     
 </head>
-
+<%
+	List<FavPcDto> list = (List<FavPcDto>)request.getAttribute("favdto");
+	String id = String.valueOf(session.getAttribute("login"));
+%>
 <body>
 	<div>
 		<jsp:include page="header.jsp" />
@@ -93,7 +64,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70 text-center">
-                            <h2>Log In</h2>
+                            <h2>찜한 PC</h2>
                         </div>
                     </div>
                 </div>
@@ -102,43 +73,95 @@
     </div>
     <!-- Hero End -->
 	<br>
-	<form action="login.do" method="post" id="registform">
-		<input type="hidden" name="command" value="regist">
-		<div style="width: 400px;">
-		
-			<table border="1">
-				<tr>
-					<th>ID</th>
-					<td>
-						<input type="text" name="id" title="n" required="required">
-						<input type="button" value="id 중복 체크" onclick="idChk();">
-					</td>
+	<form action="mypage.do?command=favpc" method="post" id="favpc">
+        <div style="padidng:30px;" >
+        <h1 align="center"><%=id %> 님의 PC 목록</h1><br><br>
+    
+		<%
+			for(FavPcDto dto : list) {
+				if(session.getAttribute("login").equals(dto.getId())) {
+					
+
+		%>   
+    		<h2></h2>
+	    	<table border="3">
+            	<col width="300px"><col width="100px"><col width="100px">
+				<thead>
+					<tr>
+						<th class="table_th">부품명</th>
+						<th class="table_th">수량</th>
+						<th class="table_th">가격</th>
+					</tr>
+				</thead>	
+
+				<tr class="favd">
+					<td><%=dto.getCpuName() %></td>
+					<td>1</td>
+					<td><%=dto.getCpuPrice() %></td>
 				</tr>
 				<tr>
-					<th>PW</th>
-					<td><input type="password" name="pw" 
-									onclick="idChkConfirm();" required="required"></td>
-				</tr>
+					<td><%=dto.getMbName() %></td>
+					<td>1</td>
+					<td><%=dto.getMbPrice() %></td>
+				</tr>	
 				<tr>
-					<th>NAME</th>
-					<td><input type="text" name="name" 
-									onclick="idChkConfirm();" required="required"></td>
+					<td><%=dto.getRamName() %></td>
+					<td><%=dto.getRamAmount() %></td>
+					<td><%=dto.getRamPrice() %></td>
 				</tr>
-				<tr>
-					<th>EMAIL</th>
-					<td><input type="text" name="email" 
-									onclick="idChkConfirm();" required="required"></td>
+				<tr>	
+					<td><%=dto.getGraphicName() %></td>
+					<td>1</td>
+					<td><%=dto.getGraphicPrice() %></td>
 				</tr>
-				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="가입">
-						
-					</td>
+				<tr>	
+					<td><%=dto.getSsdName() %></td>
+					<td><%=dto.getSsdAmount() %></td>
+					<td><%=dto.getSsdPrice() %></td>
 				</tr>
-			</table>
-		</div>	
-	</form>
-	 <div> 
+				<tr>	
+					<td><%=dto.getCoolName() %></td>
+					<td>1</td>
+					<td><%=dto.getCoolPrice() %></td>
+				</tr>
+				<tr>	
+					<td><%=dto.getPowerName() %></td>
+					<td>1</td>
+					<td><%=dto.getPowerPrice() %></td>
+				</tr>
+				<tr>	
+					<td><%=dto.getCaseName() %></td>
+					<td>1</td>
+					<td><%=dto.getCasePrice() %></td>
+				</tr>
+					
+				<tr class="favd">
+					<td></td>
+					<th>합계: </th>
+					<td><%=dto.getTotalPrice() %></td>
+				</tr>	
+				<tr class="favd">
+					<td></td>
+					<td></td>
+					<td><input type="button" value="삭제" 
+					onclick="location.href='mypage.do?command=deletepc&favnum=<%=dto.getFavNum()%>'"></td>	
+	        </table>
+	        <br><br><br>
+        <%
+				}
+			}
+        %>
+        
+       </div> 
+       <div id="backbtn">
+       		<input type="button" value="뒤로가기" onclick="location.href='mypage.do?command=mypage'">
+       </div>
+       <br><br><br><br>
+   </form>
+
+     
+			
+	<div> 
 		<jsp:include page="footer.jsp" />
 	</div>
 	<!-- Scroll Up -->

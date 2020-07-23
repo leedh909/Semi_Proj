@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -47,21 +48,25 @@ public class LoginServlet extends HttpServlet {
 			
 			ldto = ldao.login(id, pw);
 			
-			if(ldto.getRole().equals("Y")) {
-				System.out.println("login success (" + ldto.getId() + ")");
-				request.getSession().setAttribute("login", id);
+			if(pw.equals(ldto.getPw())) {
 				
-				jsResponse("관리자 로그인 성공!!", "index.jsp", response);
-//				response.sendRedirect("index.jsp");
-				System.out.println(id);
-				
-			} else if(ldto.getRole().equals("N")) {
-				System.out.println("login success (" + ldto.getId() + ")");
-				request.getSession().setAttribute("login", id);
-				jsResponse(ldto.getName() + " 님 환영합니다~", "index.jsp", response);
-				System.out.println(id);
-				
-				
+				if(ldto.getRole().equals("Y")) {
+					System.out.println("login success (" + ldto.getId() + ")");
+					request.getSession().setAttribute("login", id);
+					
+					jsResponse("관리자 로그인 성공!!", "index.jsp", response);
+	//				response.sendRedirect("index.jsp");
+					System.out.println(id);
+					
+				} else if(ldto.getRole().equals("N")) {
+					System.out.println("login success (" + ldto.getId() + ")");
+					request.getSession().setAttribute("login", id);
+					jsResponse(ldto.getName() + " 님 환영합니다~", "index.jsp", response);
+					System.out.println(id);
+					
+				}
+			} else {
+				jsResponse("비밀번호가 틀렸습니다.", "login.jsp", response);
 			}
 			
 			
@@ -96,9 +101,11 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 		} else if(command.equals("logout")) {
+			
 			request.getSession().invalidate(); 		//세션에 작성된 정보 삭제 
 			response.sendRedirect("index.jsp");
 			System.out.println("logout success");
+			
 			
 		} else if(command.equals("idchk")) {
 			
@@ -112,8 +119,8 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("idchk.jsp?idnotused="+idnotused);
 			
 		} else if(command.equals("mypage")) {
-
 			response.sendRedirect("mypage.jsp");
+			
 		} else if(command.equals("kakaologin")) {
 			
 			String pw = request.getParameter("id");
@@ -198,7 +205,55 @@ public class LoginServlet extends HttpServlet {
 				
 			}
 			
+		}else if(command.equals("facebooklogin")) {
+			
+			String pw = request.getParameter("id");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String id = email.split("@")[0]+"@f";
+			
+			System.out.println(pw);
+			System.out.println(name);
+			System.out.println(email);
+			System.out.println(id);
+			
+			String chk = ldao.idchk(id);
+			
+			if(chk!=null) {
+				request.getSession().setAttribute("login", id);
+				System.out.println(id);
+				jsResponse(name + " 님 환영합니다~(페이스북으로 로그인하셨습니다.!)", "index.jsp", response);
+				
+			}else {
+				
+				ldto = new LoginDto();
+				ldto.setId(id);
+				ldto.setName(name);
+				ldto.setPw(pw);
+				ldto.setEmail(email);
+				
+				ldao = new LoginDao();
+				
+				int res = ldao.registUser(ldto);
+				
+				if(res>0) {
+					request.getSession().setAttribute("login", id);
+					System.out.println(id);
+					jsResponse(name + " 님 환영합니다~(페이스북으로 로그인하셨습니다.)", "index.jsp", response);
+					System.out.println("회원가입 성공!!");
+					
+				} else {
+					jsResponse("회원가입 실패 ㅠㅠ", "login.do?command=loginform", response);
+					System.out.println("회원가입 실패!!");
+					
+				}
+				
+			}
 		}
+		
+		
+		
+		
 		
 	}
 

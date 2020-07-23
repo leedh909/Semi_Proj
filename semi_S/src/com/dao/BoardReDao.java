@@ -128,5 +128,44 @@ public class BoardReDao extends JDBCTemplate{
 		return res;
 	}
 	
+	//댓글 다 불러오기 
+	public List<BoardReDto> selectMyre(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<BoardReDto> res = new ArrayList<BoardReDto>();
+		String sql = " SELECT * FROM BOARDREPLY_B ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: " + sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				BoardReDto rdto = new BoardReDto();
+				rdto.setSeq(rs.getInt(1));
+				rdto.setBoardnum(rs.getInt(2));
+				rdto.setWriteid(rs.getString(3));
+				rdto.setContent(rs.getString(4));
+				rdto.setRegdate(rs.getDate(5));
+				
+				res.add(rdto);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 오류");
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
 	
 }

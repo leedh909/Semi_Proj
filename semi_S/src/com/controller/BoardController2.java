@@ -59,6 +59,7 @@ public class BoardController2 extends HttpServlet {
 		}else if(command.equals("detail")) {
 			int seq = Integer.parseInt(request.getParameter("seq"));
 			
+			dao.updatecount(seq);
 			System.out.println("seq"+seq);
 			BoardDto dto = dao.selectone(seq);
 			

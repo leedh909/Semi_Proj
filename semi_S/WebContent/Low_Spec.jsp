@@ -111,6 +111,11 @@
                 </div>
             </div>
         </div>
+        <div class="title" align="center">
+			<button onclick="choose(1);"><h1>CHOOSE - 1</h1></button>
+			<button onclick="choose(2);"><h1>CHOOSE - 2</h1></button>
+			<button onclick="choose(3);"><h1>CHOOSE - 3</h1></button>
+		</div>
     </div>
    <br><br>
    <!-- 사양별 태그 -->

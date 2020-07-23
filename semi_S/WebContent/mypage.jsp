@@ -4,6 +4,10 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>    
     
 <%@ page import="java.util.List" %>
+<%@ page import="com.dto.BoardDto" %>
+<%@ page import="com.dto.BoardReDto" %>
+<%@ page import="com.dto.LoginDto" %>
+<%@ page import="com.dto.AnswerDto" %>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +34,6 @@
 <link rel="stylesheet" href="assets/css/table.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	
 </script>
 <style type="text/css">
 	.table_th{
@@ -43,11 +46,23 @@
 		margin-left:auto;
 		margin-right: auto;
 	}
+	.boardtitle{
+		color: blue;
+	}
+	.qnatitle {
+		color: blue;
+	}
 	
 </style>
     
 </head>
-
+<%
+	List<BoardDto> list = (List<BoardDto>)request.getAttribute("allList");
+	List<BoardReDto> relist = (List<BoardReDto>)request.getAttribute("reList");
+	List<LoginDto> lglist = (List<LoginDto>)request.getAttribute("lglist");
+	List<AnswerDto> aslist = (List<AnswerDto>)request.getAttribute("aslist");	
+	String id = String.valueOf(session.getAttribute("login"));
+%>
 <body>
 	<div>
 		<jsp:include page="header.jsp" />
@@ -68,17 +83,242 @@
     </div>
     <!-- Hero End -->
 	<br>
-	<form action="login.do" method="post" id="registform">
-		<input type="hidden" name="command" value="regist">
-		<div style="width: 400px;">
+	<form action="mypage.do" method="post" id="mypage" >
+	<%
+		if(!session.getAttribute("login").equals("ADMIN") ) {
+	
+	%>
+			<div style="padding:30px" align="center">
+				<h1><%=id %> 님 환영합니다</h1>
+			</div>
+			
+			<div style="padding:30px">
+				<h1 align="center"><a href="mypage.do?command=favpc">내가 찜한 pc 보기!!</a></h1>
+			</div>	
+
+			<div style="padding:30px;">
+				<h1 align="center">내가 쓴 글 </h1>
+				<table border="3">
+					<col width="50px"><col width="300px">
+					<col width="100px"><col width="100px"><col width="50px"> 
+					<thead>
+						<th class="table_th">NO</th>
+						<th class="table_th">제목</th>
+						<th class="table_th">작성자</th>
+						<th class="table_th">날짜</th>
+						<th class="table_th">조회수</th>
+					</thead>
+					<%
+						for(BoardDto dto:list) {
+							System.out.println("글: "+session.getAttribute("login") + "=" + dto.getWriter());
+							if(session.getAttribute("login").equals(dto.getWriter())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + dto.getWriter());
+					%>
+							<tr>
+								<td><%=dto.getSeq() %></td>
+								<td><a class="boardtitle" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getTitle() %></a></td>
+								<td><%=dto.getWriter() %></td>
+								<td><%=dto.getRegdate() %></td>
+								<td><%=dto.getVcount() %></td>
+								
+							</tr>
+					<%
+							System.out.println("글 출력 완료");
+							}
+						}
+						
+					%>
+					
+				</table>
+
+			</div>
+				
+			<div style="padding:30px;">
+				<h1 align="center">내가 쓴 댓글 </h1>
+				<table border="3">
+					<col width="30px">
+					<col width="300px"><col width="100px"><col width="50px"> 
+					<thead>
+						<th class="table_th">글 번호</th>
+						<th class="table_th">내용</th>
+						<th class="table_th">작성자</th>
+						<th class="table_th">날짜</th>
+						
+					</thead>
+					<%
+						System.out.println("댓글 목록: " + relist);
+						for(BoardReDto redto: relist) {
+							System.out.println("댓글: " + session.getAttribute("login") + "=" + redto.getWriteid());
+							if(session.getAttribute("login").equals(redto.getWriteid())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + redto.getWriteid());
+					%>
+							<tr>
+								<td><%=redto.getBoardnum() %></td>
+								<td><a class="boardtitle" href="BoardController2?command=detail&seq=<%=redto.getBoardnum()%>"><%=redto.getContent() %></a></td>
+								<td><%=redto.getWriteid() %></td>
+								<td><%=redto.getRegdate() %></td>
+								
+							</tr>
+					<%
+							}
+						}
+			
+					%>
+					
+				</table>
+			</div>
+			
+			<div style="padding:30px; height:300px;">
+				<h1 align="center">나의 질문 </h1>
+				<table border="3">
+					<col width="30px"><col width="300px">
+					<col width="30px"><col width="100px"><col width="50px"> 
+					<thead>
+						<th class="table_th">질문 번호</th>
+						<th class="table_th">내용</th>
+						<th class="table_th">작성자</th>
+						<th class="table_th">작성일</th>
+						<th class="table_th">조회수</th>
+						
+					</thead>
+					<%
+						System.out.println("질문 목록: " + aslist);
+						for(AnswerDto asdto: aslist) {
+							System.out.println("질문: " + session.getAttribute("login") + "=" + asdto.getId());
+							if(session.getAttribute("login").equals(asdto.getId())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + asdto.getId());
+					%>
 		
-		<input type="hidden" name="command" value="insertuser">
-			<table border="1">
-				<input type="button" value="내가 쓴 글 보기">
-				<input type="button" value="내가 쓴 댓글 보기">
-				<input type="button" value="내가 찜한 pc 보기">
-			</table>
-		</div>	
+							<tr>
+								<td><%=asdto.getQnanum() %></td>
+								<td><a class="qnatitle" href="answer.do?command=detail&qnanum=<%=asdto.getQnanum()%>"><%=asdto.getContent() %></a></td>
+								<td><%=asdto.getId() %></td>
+								<td><%=asdto.getRegdate() %></td>
+								<td><%=asdto.getVcount() %></td>
+								
+							</tr>
+					<%
+							}
+						}
+			
+					%>
+					
+				</table>
+			</div>
+	<%
+		} else if(session.getAttribute("login").equals("ADMIN")) {
+	%>
+		
+			<div style="padding:30px;">
+				<h1 align="center">회원 목록</h1>
+				<table border="5">
+					<col width="100px"><col width="100px"><col width="100px"><col width="50px"><col width="50px">
+					<thead>
+						<th class="table_th">ID</th>
+						<th class="table_th">NAME</th>
+						<th class="table_th">EMAIL</th>
+						<th class="table_th">ROLE</th>
+						<th class="table_th">탈퇴</th>
+						
+					</thead>
+					<%
+						for(LoginDto ldto: lglist) {
+							System.out.println("회원: " + session.getAttribute("login") + "=" + ldto.getId());
+					%>
+							<tr>
+								<td><%=ldto.getId() %></td>
+								<td><%=ldto.getName() %></td>
+								<td><%=ldto.getEmail() %></td>
+								<td><%=ldto.getRole() %></td>
+								<td ><input type="button" value="탈퇴!" 
+									onclick="location.href='mypage.do?command=delete&id=<%=ldto.getId() %>'" ></td>
+							</tr>
+					<%
+						}
+			
+					%>
+					
+				</table>
+			</div>
+			<div style="padding:30px; height:300px;">
+				<h1 align="center">내가 쓴 글 </h1>
+				<table border="3">
+					<col width="50px"><col width="300px">
+					<col width="100px"><col width="100px"><col width="50px"> 
+					<thead>
+						<th class="table_th">NO</th>
+						<th class="table_th">제목</th>
+						<th class="table_th">작성자</th>
+						<th class="table_th">날짜</th>
+						<th class="table_th">조회수</th>
+					</thead>
+					<%
+						for(BoardDto dto:list) {
+							System.out.println("글: "+session.getAttribute("login") + "=" + dto.getWriter());
+							if(session.getAttribute("login").equals(dto.getWriter())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + dto.getWriter());
+					%>
+		
+							<tr>
+								<td><%=dto.getSeq() %></td>
+								<td><a class="boardtitle" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getTitle() %></a></td>
+								<td><%=dto.getWriter() %></td>
+								<td><%=dto.getRegdate() %></td>
+								<td><%=dto.getVcount() %></td>
+								
+							</tr>
+					<%
+							System.out.println("글 출력 완료");
+							}
+						}
+						
+					%>
+					
+				</table>
+
+			</div>
+				
+			<div style="padding:30px; height:300px;">
+				<h1 align="center">내가 쓴 댓글 </h1>
+				<table border="3">
+					<col width="30px"><col width="30px">
+					<col width="100px"><col width="100px"><col width="50px"> 
+					<thead>
+						<th class="table_th">댓글 번호</th>
+						<th class="table_th">글 번호</th>
+						<th class="table_th">내용</th>
+						<th class="table_th">작성자</th>
+						<th class="table_th">날짜</th>
+						
+					</thead>
+					<%
+						System.out.println("댓글 목록: " + relist);
+						for(BoardReDto redto: relist) {
+							System.out.println("댓글: " + session.getAttribute("login") + "=" + redto.getWriteid());
+							if(session.getAttribute("login").equals(redto.getWriteid())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + redto.getWriteid());
+					%>
+		
+							<tr>
+								<td><%=redto.getSeq() %></td>
+								<td><%=redto.getBoardnum() %></td>
+								<td><%=redto.getContent() %></td>
+								<td><%=redto.getWriteid() %></td>
+								<td><%=redto.getRegdate() %></td>
+								
+							</tr>
+					<%
+							}
+						}
+			
+					%>
+					
+				</table>
+			</div>
+	<%
+		}
+	%>
+		
 	</form>
 	 <div> 
 		<jsp:include page="footer.jsp" />
