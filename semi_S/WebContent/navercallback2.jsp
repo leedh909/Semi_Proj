@@ -21,19 +21,22 @@
 	var email = naver_id_login.getProfileData('email')
 	
 	/* console.log(naver_id_login);
-    for( var key in naver_id_login.getProfileData){
-    	console.log("key : " + key +", value : "+ naver_id_login.getProfileData[key]);
+    for( var key in naver_id_login){
+    	console.log("key : " + key +", value : "+ naver_id_login[key]);
     } */
-    
-    
-    
-	alert(id);
+
+/* 	alert(id);
 	alert(name);
-	alert(email);
+	alert(email); */
+	// https://nid.naver.com/nidlogin.logout 
 	
-	 window.location.replace("http://" + window.location.hostname + 
+	
+	window.location.replace("http://" + window.location.hostname + 
             ( (location.port==""||location.port==undefined)?"":":" + location.port) + "${pageContext.request.contextPath}/login.do?command=naverlogin&id="+id+"&email="+email+"&name="+name);
-   }
+	
+	
+	
+  }
 </script>
 </body>
 </html>

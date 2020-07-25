@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title> Architects | Template </title>
+<title> GRAPHCORE | PC추천 </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -36,7 +36,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -80,14 +80,14 @@
                                 <h3 style="text-align:center"><a href="#">저사양</a></h3>
                             </div>
                             <div class="team-img">
-                                <a href="${pageContext.request.contextPath}/ViewController?command=lowspec"><img src="https://nxm-mt.akamaized.net/Contents/baramy.nexon.com/launch/images/launch_ori/b_preview_8.jpg" alt="" style="width:400px; height:400px;"></a>
+                                <a href="${pageContext.request.contextPath}/spec.jsp?command=lowspec&spec=low"><img src="assets/img/index/111.png" alt="" style="width:400px; height:400px;"></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <a href="${pageContext.request.contextPath}/ViewController?command=lowspec"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3ZDONOlKVgkEid_BrvES6Bv8TwcA9T0sHtA&usqp=CAU" alt="" style="width:400px; height:400px;"></a>
+                                <a href="${pageContext.request.contextPath}/spec.jsp?command=lowspec&spec=mid"><img src="assets/img/index/222.png" alt="" style="width:400px; height:400px;"></a>
                             </div>
                             <div class="team-caption">
                                 <h3 style="text-align:center"><a href="#">중사양</a></h3>
@@ -100,7 +100,7 @@
                                 <h3 style="text-align:center"><a href="#">고사양</a></h3>
                             </div>
                             <div class="team-img">
-                                <a href="${pageContext.request.contextPath}/ViewController?command=lowspec"><img src="https://img.danawa.com/images/descFiles/3/905/2904208_1_1430890966.jpg" alt="" style="width:400px; height:400px;"></a>
+                                <a href="${pageContext.request.contextPath}/spec.jsp?command=lowspec&spec=high"><img src="assets/img/index/333.png" alt="" style="width:400px; height:400px;"></a>
                             </div>
                         </div>
                     </div>

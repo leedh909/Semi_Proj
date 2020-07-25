@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title> Architects | Template </title>
+<title> GRAPHCORE | 중급 </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/posts.css" />
 	<link rel="stylesheet" href="assets/css/logostyle.css">
+	<link rel="stylesheet" href="assets/css/btn.css">
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -37,7 +38,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -65,40 +66,43 @@
         <!-- Hero End -->
        <div class="posts">
 		<article>
-			<div class="embed-container"><iframe width="520" height="381.53" src="https://www.youtube.com/embed/VJI88QIW7H4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
-			<h2>오버클럭</h2>
-			<p>100%의 성능을 200%까지 끌어올리는 과정이며 시도 중간에 부품이 고장나는 경우도 있기 때문에 필수로 해야하는 과정은 아닙니다. 오버클럭을 하게될 시 컴퓨터의 전력을 더 소모하게 되어 소음과 발열이 발생하게됩니다.
-</p>
-			<details>
-					<summary>조건</summary>
-					<p>Z가 붙은 메인보드, K가 붙은 CPU, XMP지원이 되는 램</p>
-			</details>
+			<div class="embed-container" ><iframe style="max-width: 100%;" width="520" height="381.53" src="https://www.youtube.com/embed/5-l4nLA2vZU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+			<h2><b>오버클럭</b></h2>
+			<p>100%의 성능을 200%까지 끌어올리는 기술이며 부품이 고장나는 경우도 있기 때문에 필수로 해야하는 과정은 아닙니다.<br>Z가 붙은 메인보드, K가 붙은 CPU, XMP지원이 되는 램이 있어야 가능함</p>
+			
 
 		</article>
 		<article>
-			<div class="embed-container"><iframe width="520" height="381.53" src="https://www.youtube.com/embed/VJI88QIW7H4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
-			<h2>언더클럭</h2>
+			<div class="embed-container"><iframe style="max-width: 100%;" width="520" height="381.53" src="https://www.youtube.com/embed/S226rfhPSrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+			<h2><b>언더클럭</b></h2>
 			<p>오버클럭의 반댓말으로 클럭과 전압을 동시에 낮춰서 최대한 저소음 및 배터리 시간을 극한으로 늘리는 기술입니다. 그러나 지나친 언더클럭은 오히려 장치에 해가 되기 때문에 자주 시도하는 것은 좋지 않습니다.
 
 </p>
 		</article>
 		<article>
-			<div class="embed-container"><iframe width="520" height="381.53" src="https://www.youtube.com/embed/VJI88QIW7H4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
-			<h2>언더볼팅</h2>
-			<p>언더클럭과 비슷하나 노트북 쓰로틀링 현상으로 인해 사용하며?클럭은 유지시키되 최대한 전압을 낮춰 성능효율성을 늘리는 기술입니다.
+			<div class="embed-container"><iframe style="max-width: 100%;" width="520" height="381.53" src="https://www.youtube.com/embed/mhBiUvMHxT4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+			<h2><b>컴퓨터 조립법</b></h2>
+			<p>조립 컴퓨터에서 가장 중요한 과정입니다. 전문가의 도움을 맡기는 것이 좋지만 직접 조립하고 싶으신 분들은 해당 영상을 참고해 주세요.
 </p>
 			
 		</article>
 		<article>
-			<div class="embed-container"><iframe width="520" height="381.53" src="https://www.youtube.com/embed/VJI88QIW7H4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
-			<h2>윈도우 설치 및 포맷</h2>
-			<p>포맷 전 중요파일은 백업합니다.
-사용하는 운영체제에 따라 설치 및 포맷방법이 다르니 유튜브를 참고해 주세요.
-</p>
+			<div class="embed-container"><iframe style="max-width: 100%;" width="520" height="381.53" src="https://www.youtube.com/embed/dV7aL2ui5zE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+			<h2><b>윈도우 설치 및 포맷</b></h2>
+			<p>포맷 전 중요파일은 백업합니다.<br>운영체제에 따라 방법이 다르니 맞는 영상을 참고해 주세요.</p>
 			
 		</article>
 		
+		
+		
 	</div>
+	
+	<div class="button-4" style="top: -90px; float:right; left: -100px;" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=wordcho'">
+    <div class="eff-4"></div>
+    <div class="no-drag">
+    <a href="#"> 초급 ▶ </a>
+			  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+  </div></div>
     </main>
     <div> 
 		<jsp:include page="footer.jsp" />

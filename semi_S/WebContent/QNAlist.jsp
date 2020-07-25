@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> GRAPHCORE | Q&A </title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
 <script type="text/javascript">
 	function idinput(num){
@@ -51,7 +51,7 @@
 <style type="text/css">
 	.table_th{
 		padding: 20px 30px;
-		border-bottom: 1px solid;
+		border-bottom: 2px solid;
 		font-size: 20pt;
 	}
 	a{
@@ -78,7 +78,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>

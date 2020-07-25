@@ -26,14 +26,13 @@
                 <div class="row align-items-center">
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2 col-md-1">
-                        <div >
-                           <a id="logostyle" href="${pageContext.request.contextPath}/ViewController?command=index">
-			 	 <span id="logostyle2">조조조조</span>
-				  <div class="wave"></div>
-			   </a>
-                        </div>
+                       <div class="no-drag">
+                            <div>
+                               <a href="${pageContext.request.contextPath}/ViewController?command=index"><img src="assets/img/logo/gc.png"></a>
+                            </div>
+                       </div>
                     </div>
-                    <div class="col-xl-9 col-lg-10">
+                <div class="col-xl-9 col-lg-10">
 			<div class="main-menu black-menu menu-bg-white d-none d-lg-block">
 				<div class="hamburger hamburger--collapse">
 					<div class="hamburger-box">
@@ -54,7 +53,7 @@
 							<a href="#">Guide</a>
 							<ul class="submenu">
                                             <li><a href="${pageContext.request.contextPath}/ViewController?command=pcrec">PC 추천</a></li>
-                                            <li><a href="#">가격비교</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/map.jsp">조립업체 추천</a></li>
 							</ul>
 						</li>
 						<li>

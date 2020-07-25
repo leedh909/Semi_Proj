@@ -90,7 +90,7 @@ public class MypageServlet extends HttpServlet {
 			//pc 보여쥬기
 			String id = request.getParameter("id");
 			PartsDao pdao = new PartsDao();
-			List<FavPcDto> favdto = pdao.selectAll();
+			List<FavPcDto> favdto = pdao.selectAll2();
 //			System.out.println(favdto);
 			request.setAttribute("favdto", favdto);
 			

@@ -6,7 +6,7 @@ public class GuideViewDto {
 	private int cpuPrice;
 	private String cpuPic;
 	private String mainboard;
-	private int mainPrice;
+	private int mainboardPrice;
 	private String mainboardPic;
 	private String ram;
 	private int ramAmount;
@@ -26,47 +26,26 @@ public class GuideViewDto {
 	private int powerPrice; 
 	private String powerPic;
 	private String caseN;
-	private int casePrice;
-	private String casePic;
+	private int caseNPrice;
+	private String caseNPic;
 	private String catPic;
 	
 	public GuideViewDto() {
 		super();
 	}
 
-
-	public int getSsdAmount() {
-		return ssdAmount;
-	}
-
-
-	public void setSsdAmount(int ssdAmount) {
-		this.ssdAmount = ssdAmount;
-	}
-
-
-	public String getCatPic() {
-		return catPic;
-	}
-
-
-	public void setCatPic(String catPic) {
-		this.catPic = catPic;
-	}
-
-
-	public GuideViewDto(String guide, String cpu, int cpuPrice, String cpuPic, String mainboard, int mainPrice,
+	public GuideViewDto(String guide, String cpu, int cpuPrice, String cpuPic, String mainboard, int mainboardPrice,
 			String mainboardPic, String ram, int ramAmount, int ramPrice, String ramPic, String gpu, int gpuPrice,
 			String gpuPic, String ssd, int ssdPrice, String ssdPic, int ssdAmount, String cooler, int coolerPrice,
-			String coolerPic, String power, int powerPrice, String powerPic, String caseN, int casePrice,
-			String casePic, String catPic) {
+			String coolerPic, String power, int powerPrice, String powerPic, String caseN, int caseNPrice,
+			String caseNPic, String catPic) {
 		super();
 		this.guide = guide;
 		this.cpu = cpu;
 		this.cpuPrice = cpuPrice;
 		this.cpuPic = cpuPic;
 		this.mainboard = mainboard;
-		this.mainPrice = mainPrice;
+		this.mainboardPrice = mainboardPrice;
 		this.mainboardPic = mainboardPic;
 		this.ram = ram;
 		this.ramAmount = ramAmount;
@@ -86,8 +65,28 @@ public class GuideViewDto {
 		this.powerPrice = powerPrice;
 		this.powerPic = powerPic;
 		this.caseN = caseN;
-		this.casePrice = casePrice;
-		this.casePic = casePic;
+		this.caseNPrice = caseNPrice;
+		this.caseNPic = caseNPic;
+		this.catPic = catPic;
+	}
+	
+
+	public int getSsdAmount() {
+		return ssdAmount;
+	}
+
+
+	public void setSsdAmount(int ssdAmount) {
+		this.ssdAmount = ssdAmount;
+	}
+
+
+	public String getCatPic() {
+		return catPic;
+	}
+
+
+	public void setCatPic(String catPic) {
 		this.catPic = catPic;
 	}
 
@@ -132,12 +131,12 @@ public class GuideViewDto {
 		this.mainboard = mainboard;
 	}
 
-	public int getMainPrice() {
-		return mainPrice;
+	public int getMainboardPrice() {
+		return mainboardPrice;
 	}
 
-	public void setMainPrice(int mainPrice) {
-		this.mainPrice = mainPrice;
+	public void setMainboardPrice(int mainPrice) {
+		this.mainboardPrice = mainPrice;
 	}
 
 	public String getMainboardPic() {
@@ -284,20 +283,20 @@ public class GuideViewDto {
 		this.caseN = caseN;
 	}
 
-	public int getCasePrice() {
-		return casePrice;
+	public int getCaseNPrice() {
+		return caseNPrice;
 	}
 
-	public void setCasePrice(int casePrice) {
-		this.casePrice = casePrice;
+	public void setCaseNPrice(int casePrice) {
+		this.caseNPrice = casePrice;
 	}
 
-	public String getCasePic() {
-		return casePic;
+	public String getCaseNPic() {
+		return caseNPic;
 	}
 
-	public void setCasePic(String casePic) {
-		this.casePic = casePic;
+	public void setCaseNPic(String casePic) {
+		this.caseNPic = casePic;
 	}
 	
 	

@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title> Architects | Template </title>
+<title> GRAPHCORE | 로그인 </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -102,12 +102,72 @@
 	}
 	#loginform{
 		display: table;
-		margin-top: 50px;
+		margin-top: 30px;
 		margin-left:auto;
 		margin-right: auto;
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 	}
 	
+	.id{
+		width: 300px;
+		height: 50px;
+	}
+	
+	.pw{
+		width: 300px;
+		margin-top: 6px;
+		height: 50px;
+	}
+	
+	.btn1{
+		width: 100%;
+		text-align: center;
+		background-color: #567;
+		height: 50px;
+		border-style: none;
+		margin-top: 12px;
+	}
+	
+	.btn2{
+		border-style: none;
+		background-color: #FFFFFF;
+		float: right;
+	}
+
+	.button_base {
+		margin-top: 12px;
+		height: 50px;
+		width: 100%;
+	    border: 0;
+	    position: relative;
+    	box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+   		-moz-box-sizing: border-box;
+    	-webkit-user-select: none;
+    	cursor: default;
+	}
+
+	.b01_simple_rollover {
+    	color: #ffffff;
+    	padding: 10px;
+    	background-color: #212529;
+	}
+
+	.b01_simple_rollover:hover {
+    	color: #ffffff;
+    	background-color: #FF1313;
+	}
+
+	.eye{
+		position: relative;
+	}
+	
+	.eye i{
+    	position: absolute;
+    	left: 87%;
+    	top: 24px;
+    	color: gray;
+	}
 
 </style>
 </head>
@@ -135,20 +195,27 @@
 		<input type="hidden" name="command" value="login">
 		<div style="width: 300px;" id="logindiv">
 		
-			<table border="1">
+			<table >
 				<col width="100"><col width="100">
 				<tr>
-					<th>I D</th>
-					<td><input type="text" name="id" placeholder="id" ></td>
+					<td><input class="id" type="text" name="id" placeholder="아이디 입력" ></td>
 				</tr>
 				<tr>
-					<th>P W</th>
-					<td><input type="password" name="pw" placeholder="pw"></td>
+					<td>
+					<div class="eye">
+					<input class="pw" type="password" name="pw" placeholder="비밀번호 입력">
+					<i class="fa fa-eye fa-lg"></i>
+					</div>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="login">
-						<input type="button" value="regist"
+						<input style="cursor: pointer;" class="button_base b01_simple_rollover"  type="submit" value="login">
+					</td>
+				</tr>
+				<tr>
+					<td>	
+						<input style="cursor: pointer;" class="btn2" type="button" value="회원가입"
 									onclick="location.href='login.do?command=registform'">
 					</td>
 				</tr>
@@ -175,8 +242,9 @@
 			<div style="padding:5px; text-align: center;">
 				<div class="fb-login-button" onlogin="checkLoginState();" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
 			</div>
-				
-			<div></div>
+			<br>
+			<br>
+						
 	
 	 <div> 
 		<jsp:include page="footer.jsp" />
@@ -190,6 +258,8 @@
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
+	
+	
 	var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "6HcRMEX_SvRjjW_I5EZz",
@@ -198,9 +268,10 @@
 			loginButton: {color: "green", type: 3, height: 48} /* 로그인 버튼의 타입을 지정 */
 		}
 	);
-	
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
+	
+	
 	
 	</script>
 

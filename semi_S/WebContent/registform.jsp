@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> GRAPHCORE | 회원가입 </title>
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 <!-- CSS here -->
@@ -74,10 +74,54 @@
 	}
 	#registform{
 		display: table;
+		margin-top: 20px;
 		margin-left:auto;
 		margin-right: auto;
+		margin-bottom: 30px;
+	}
+	.button_base {
+		margin-top: 12px;
+		height: 50px;
+		width: 100%;
+	    border: 0;
+	    position: relative;
+	    box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    -webkit-user-select: none;
+	    cursor: default;
 	}
 	
+	.b01_simple_rollover {
+	    color: #ffffff;
+	    padding: 10px;
+	    background-color: #212529;
+	}
+	
+	.b01_simple_rollover:hover {
+	    color: #ffffff;
+	    background-color: #FF1313;
+	}
+	
+	.font{
+		font-size: 16px;
+		text-align: left;
+	}
+	
+	.bnt2{
+		padding-top: 5px;
+		padding-bottom: 4px;
+		border-style: none;
+		font-size: 14px;
+		color: #ffffff;
+		background-color: #212529;
+		position: relative;
+	    box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    -webkit-user-select: none;
+	    cursor: default;
+	}
 </style>
     
 </head>
@@ -93,7 +137,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70 text-center">
-                            <h2>Log In</h2>
+                            <h2>regist</h2>
                         </div>
                     </div>
                 </div>
@@ -106,32 +150,32 @@
 		<input type="hidden" name="command" value="regist">
 		<div style="width: 400px;">
 		
-			<table border="1">
+			<table>
 				<tr>
-					<th>ID</th>
+					<th class="font">ID</th>
 					<td>
-						<input type="text" name="id" title="n" required="required">
-						<input type="button" value="id 중복 체크" onclick="idChk();">
+						<input type="text" name="id" title="n" placeholder="아이디" required="required">
+						<input class="bnt2 b01_simple_rollover" style="cursor: pointer;" type="button" value="중복 확인" onclick="idChk();">
 					</td>
 				</tr>
 				<tr>
-					<th>PW</th>
+					<th class="font">PW</th>
 					<td><input type="password" name="pw" 
-									onclick="idChkConfirm();" required="required"></td>
+									onclick="idChkConfirm();" placeholder="비밀번호" required="required"></td>
 				</tr>
 				<tr>
-					<th>NAME</th>
+					<th class="font">NAME</th>
 					<td><input type="text" name="name" 
-									onclick="idChkConfirm();" required="required"></td>
+									onclick="idChkConfirm();" placeholder="이름" required="required"></td>
 				</tr>
 				<tr>
-					<th>EMAIL</th>
+					<th class="font">EMAIL</th>
 					<td><input type="text" name="email" 
-									onclick="idChkConfirm();" required="required"></td>
+									onclick="idChkConfirm();" placeholder="이메일" required="required"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="가입">
+						<input style="cursor: pointer;" class="button_base b01_simple_rollover" type="submit" value="가입">
 						
 					</td>
 				</tr>

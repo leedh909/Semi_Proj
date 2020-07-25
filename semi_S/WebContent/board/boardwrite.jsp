@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title> Insert title here </title>
+    <title> GRAPHCORE | 자유게시판 </title>
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 	<!-- CSS here -->
