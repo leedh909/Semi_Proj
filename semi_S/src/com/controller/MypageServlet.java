@@ -62,6 +62,18 @@ public class MypageServlet extends HttpServlet {
 			List<LoginDto> lglist = ldao.selectAll();
 			request.setAttribute("lglist", lglist);
 			
+			//QNA 답글 대기목록
+			int[] seq = new int[alist.size()];
+			for(int i=0;i<alist.size();i++){
+				seq[i]=alist.get(i).getQ_gpnum();
+				System.out.println("seq: "+seq[i]);
+			}
+			
+			List<AnswerDto> awlist= adao.qnawaiting(seq);
+			request.setAttribute("awlist", awlist);
+			
+			
+			
 			RequestDispatcher dispatch = request.getRequestDispatcher("mypage.jsp");
 			dispatch.forward(request, response);
 			

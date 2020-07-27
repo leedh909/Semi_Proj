@@ -53,6 +53,7 @@
 		padding: 20px 30px;
 		border-bottom: 2px solid;
 		font-size: 20pt;
+		text-align: center;
 	}
 	a{
 		color: blue;
@@ -109,15 +110,15 @@
     </div>
     <!-- Hero End -->
     <br>
-    <div style="padding:30px; height:800px;">
+    <div style="padding:30px; height:800px; padding-right: 200px;padding-left: 200px;">
 	<table border="5" >
 		<col width="50px"><col width="100px">
 	   <col width="300px"><col width="100px">
 		<thead>
-				<th class="table_th" width="73">글번호</th>
-				<th class="table_th" width="65">작성 아이디</th>
+				<th class="table_th" width="73">No</th>
+				<th class="table_th" width="65">작성자</th>
 				<th class="table_th" width="134">제목</th>
-				<th class="table_th" width="73">작성일</th>
+				<th class="table_th" width="73">날짜</th>
 				<th class="table_th" width="58">조회수</th>
 			</thead>
 		
@@ -132,15 +133,15 @@
             <c:set var="qnanum" value="${fn:length(list) }"></c:set>
             <c:forEach var="dto" items="${list}">
                <tr>
-                  <td><c:out value="${qnanum }"></c:out> </td>
+                  <td style="text-align: center;"><c:out value="${qnanum }"></c:out> </td>
                   <td>${dto.id }</td>
                   <td>
                      <c:forEach begin="1" end="${dto.tabletab}" step="1">
                      </c:forEach>
                      <a href="${pageContext.request.contextPath}/answer.do?command=detail&qnanum=${dto.qnanum }">${dto.title }</a>
                   </td>
-                  <td>${dto.regdate }</td>
-                  <td>${dto.vcount }</td>
+                  <td style="text-align: center;">${dto.regdate }</td>
+                  <td style="text-align: center;">${dto.vcount }</td>
                </tr>
                <c:set var="qnanum" value="${qnanum -1}"></c:set>
             </c:forEach>

@@ -55,6 +55,14 @@
 	height: 350px;
 	padding-top: 10px;
 }
+.major{
+	background-color:transparent; border:0px transparent; color:black; padding-right:50px; padding-left:50px;
+	cursor: pointer; text-align:center;
+}
+.minor{
+	background-color:transparent; border:0px transparent; color:black; padding-right:50px; padding-left:50px;
+	cursor: pointer; text-align:center;
+}
 
 .content {
 	clear: both;
@@ -132,10 +140,10 @@ $(document).ready(function(){
 			</div>
 				<div>
 					<div class="title" align="center">
-						<button style="background-color:transparent;  border:0px transparent;  padding-right:100px;" onclick="showCompany(1);">
+						<button style="background-color:transparent;  border:0px transparent;  padding-right:100px; cursor: pointer;" onclick="showCompany(1);">
 							<h1 style="color:white; font-size:30px;">Major Company</h1>
 						</button>
-						<button style="background-color:transparent; border:0px transparent; color:white;  padding-left:100px;" onclick="showCompany(2)">
+						<button style="background-color:transparent; border:0px transparent; color:white;  padding-left:100px; cursor: pointer;" onclick="showCompany(2)">
 							<h1 style="color:white; font-size:30px;">Minor ComPany</h1>
 						</button>
 					</div>
@@ -146,27 +154,27 @@ $(document).ready(function(){
 		<!-- 사양별 태그 -->
 		<section>
 			<!-- Section Tittle -->
-			<article id="title" align="center">
+			<article id="title">
 				<%
 				String sp = request.getParameter("spec");
 				String id = String.valueOf(session.getAttribute("login"));
 				String no = request.getParameter("no");
 				%>
 				<div>
-					<div class="title" align="center" >
-						<button style="background-color:transparent; border:0px transparent; color:black; padding-right:100px;" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=1'" class="major">
+					<div class="title" style="text-align:center;" >
+						<button  onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=1'" class="major">
 							<h1>COMPUZONE</h1>
 						</button>
-						<button style="background-color:transparent; border:0px transparent; color:black; padding-right:100px;" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=2'" class="major">
+						<button  onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=2'" class="major">
 							<h1>COMSCLUB</h1>
 						</button>
-						<button style="background-color:transparent; border:0px transparent; color:black; padding-right:100px;" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=3'" class="minor">
+						<button  onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=3'" class="minor">
 							<h1>PC LIFE</h1>
 						</button>
 						<button style="background-color:transparent; border:0px transparent; color:black; text-align:center" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=4'" class="minor">
 							<h1>CACHE</h1>
 						</button>
-						<button style="background-color:transparent; border:0px transparent; color:black; padding-left:100px;" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=5'" class="minor">
+						<button  onclick="location.href='${pageContext.request.contextPath}/ViewController?command=mapfind&no=5'" class="minor">
 							<h1>COMWOORI</h1>
 						</button>
 						<input type="hidden" id="hideOption1" value="${def}">
@@ -178,12 +186,12 @@ $(document).ready(function(){
 			<br>
 
 	<section>
-			<div class="container" id="data" style="padding-bottom:100px; ">
-				<h2  style="font-size:30px; ">Company Name:&nbsp;&nbsp;<input type="text" style="border:none; font-size:20px;" value="${dto.name}"> </h2>
+			<div class="container" id="data" style="padding-bottom:100px; padding-left:100px;">
+				<h2  style="font-size:30px; ">Company Name:&nbsp;&nbsp;<input type="text" style="border:none; font-size:20px;" value="${dto.name}" readonly="readonly"> </h2>
 				<br>
-				<h2 style="font-size:30px;" >WebPage:&nbsp;&nbsp;<a style="font-size:25px; color:blue;"  href="${dto.webPage}">${dto.webPage}</a></h2>
+				<h2 style="font-size:30px;" >WebPage:&nbsp;&nbsp;<a style="font-size:25px; color:blue;"  href="${dto.webPage}" target="_blank">${dto.webPage}</a></h2>
 				<br>
-				<h2 style="font-size:30px;">Address:&nbsp;&nbsp;<input type="text" style="width:600px; border:none; font-size:20px;" value="${dto.addr}"></h2>
+				<h2 style="font-size:30px;">Address:&nbsp;&nbsp;<input type="text" style="width:800px; border:none; font-size:20px;" value="${dto.addr}" readonly="readonly"></h2>
 				<br>
 								
 				<div id="map" style="width:1000px;height:500px; padding-bottom:100px; "></div>

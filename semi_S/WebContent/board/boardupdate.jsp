@@ -50,7 +50,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="${pageContext.request.contextPath}/assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-	<div style="padding: 40px">
+	<div style="padding: 40px; padding-right: 200px;padding-left: 200px;">
 	<form action="BoardController2" method="post">
 		<input type="hidden" name="command" value="boardupdate">
 		<input type="hidden" name="seq" value="${dto.seq }">

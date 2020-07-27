@@ -69,7 +69,7 @@ $(function(){
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="${pageContext.request.contextPath}/assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -93,9 +93,9 @@ $(function(){
         </div>
     </div>
     
-    <div style="padding: 40px">
+    <div style="padding: 40px; padding-right: 200px;padding-left: 200px;">
 	<table border="3" >
-		<col width="100px"><col width="100%">
+		<col width="100px"><col width="600px;">
 		 
 		<tr>
 			<th class="table_th">NO</th>
@@ -168,9 +168,8 @@ $(function(){
 	</form>
 	</div>
 	
-	<div style="padding:30px; height:800px;">
+	<div style="padding:30px; height:600px;">
 		<table >
-			
 			<%
 				if(list.size()==0){
 			%>
@@ -182,19 +181,19 @@ $(function(){
 						for(BoardReDto redto:list){
 			%>
 					<tr>
-						<th class="table_th" style="width:50px; font-size: 12pt;">NO</th>
-						<td style="width:50px;"><%=redto.getSeq() %></td>
 						<th class="table_th" style="width:50px; font-size: 12pt;">WRITER</th>
 						<td style="width:100px;"><%=redto.getWriteid() %></td>
 						<th class="table_th" style="width:50px; font-size: 12pt;">DATE</th>
-						<td style="width:50px;"><%=redto.getRegdate() %></td>
+						<td style="width:200px;"><%=redto.getRegdate() %></td>
+						
+						<td></td>
 					</tr>
 					<tr>
 						<th class="table_th" style="width:50px; font-size: 12pt;">CONTENT</th>
-						<td colspan="6"><%=redto.getContent() %></td>
+						<td colspan="4"><%=redto.getContent() %></td>
 					</tr>
 					<tr>
-						<td colspan="6" align="right">
+						<td colspan="5" align="right">
 				
 						<%
 							if(session.getAttribute("login")==null || session.getAttribute("login").equals(null)) {

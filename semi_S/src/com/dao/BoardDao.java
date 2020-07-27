@@ -215,4 +215,87 @@ public class BoardDao {
    	  
    	  return res;
      }
+	 
+	 public List<BoardDto> pagingSelectAll(int currentPage){
+			
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<BoardDto> res = new ArrayList<BoardDto>();
+		
+		int limit = 5; 
+		int startRow = (currentPage - 1) * limit + 1;
+		int endRow = startRow + limit - 1;
+		
+		String sql = "SELECT * FROM BOARD WHERE BOARDNUM BETWEEN ? AND ?  ORDER BY BOARDNUM DESC";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, startRow);
+			pstm.setInt(2, endRow);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setSeq(rs.getInt(1));
+				dto.setWriter(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setRegdate(rs.getDate(5));
+				dto.setVcount(rs.getInt(6));
+				
+				res.add(dto);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+
+		return res;
+	}
+	 
+	 public int listCount() {
+			
+			
+		Connection con  = getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		int res = 0;
+		
+		
+		String sql = "SELECT COUNT(*) FROM BOARD";
+		
+		try {
+			stmt = con.createStatement();
+			System.out.println("03. query 준비: "+sql);
+
+			rs = stmt.executeQuery(sql);
+			System.out.println("04. query 실행 및 리턴");
+
+			if(rs.next()) {
+				res = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(stmt);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res; 
+	}
 }

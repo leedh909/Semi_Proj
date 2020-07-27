@@ -10,6 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
     
 <%@ page import="com.dto.BoardDto" %>
+<%@ page import="com.dto.PagingDto" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
@@ -53,6 +54,7 @@
 		padding: 20px 30px;
 		border-bottom: 2px solid;
 		font-size: 20pt;
+		text-align: center;
 	}
 	.boardtitle{
 		color: blue;
@@ -63,12 +65,25 @@
 		background-color: gray;
 		border:none;
 	}
+	.pgbutton{
+		color:black;
+		cursor:pointer; 
+	   background-color:transparent; 
+	   border:0px transparent;
+	}
 </style>
     
 </head>
 <%
 	List<BoardDto> list = (List<BoardDto>)request.getAttribute("allList");
 	String id = String.valueOf(session.getAttribute("login"));
+	PagingDto pg = (PagingDto)request.getAttribute("pg");
+	
+	int listCount = pg.getListCount();
+	int currentPage = pg.getCurrentPage();
+	int lastPage = pg.getLastPage();
+	int startPage = pg.getStartPage();
+	int endPage = pg.getEndPage();
 %>
 <body>
  	<!-- ? Preloader Start -->
@@ -108,12 +123,12 @@
     </div>
     <!-- Hero End -->
 	<br>
-	<div style="padding:30px; height:800px;">
+	<div style="padding:30px; height:800px; padding-right: 200px;padding-left: 200px;">
 		<table border="3">
-			<col width="50px"><col width="300px">
+			<col width="10px"><col width="300px">
 			<col width="100px"><col width="100px"><col width="50px"> 
 			<thead>
-				<th class="table_th">NO</th>
+				<th style="font-size: 15px; border-bottom: 2px solid; text-align: center; padding-bottom: 0px;">NO</th>
 				<th class="table_th">제목</th>
 				<th class="table_th">작성자</th>
 				<th class="table_th">날짜</th>
@@ -130,20 +145,54 @@
 						for(BoardDto dto:list){
 			%>
 					<tr>
-						<td><%=dto.getSeq() %></td>
+						<td style="text-align: center;"><%=dto.getSeq() %></td>
 						<td><a class="boardtitle" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getTitle() %></a></td>
 						<td><%=dto.getWriter() %></td>
-						<td><%=dto.getRegdate() %></td>
-						<td><%=dto.getVcount() %></td>
+						<td style="text-align: center;"><%=dto.getRegdate() %></td>
+						<td style="text-align: center;"><%=dto.getVcount() %></td>
 						
 					</tr>
 			<%
 					}
 				}
 			%>
-			<tr>
-				<td colspan="5" align="right">
+			
+		</table>
+			<div align="center">
+					<div class='pagingArea' align='center'>
+					<% if(!list.isEmpty()){ %>
+					<button class="pgbutton" onclick="location.href='<%= request.getContextPath() %>/ViewController?command=boardlist&currentPage=1'">&lt;&lt;</button>
+					<button class="pgbutton" onclick="location.href='<%= request.getContextPath() %>/ViewController?command=boardlist&currentPage=<%= currentPage-1 %>'" id="beforeBtn">&lt;</button>
+					<script>
+						if(<%= currentPage %> <= 1){
+							var before = $('#beforeBtn');
+							before.attr('disabled', 'true');
+						}
+					</script>
+
+					<% for(int p = startPage; p <= endPage; p++){ %>
+						<% if(p == currentPage){ %>
+							<button class="pgbutton"  id="choosen" style="color:blue;" disabled><%= p %></button>
+						<% } else{ %>
+							<button class="pgbutton" id="numBtn" onclick="location.href='<%= request.getContextPath() %>/ViewController?command=boardlist&currentPage=<%= p %>'"><%= p %></button>
+						<% } %>
+					<% } %>
+						
+					<button class="pgbutton" onclick="location.href='<%= request.getContextPath() %>/ViewController?command=boardlist&currentPage=<%= currentPage + 1 %>'" id="afterBtn">&gt;</button>
+					<script>
+						if(<%= currentPage %> >= <%= lastPage %>){
+							var after = $("#afterBtn");
+							after.attr('disabled', 'true');
+						}
+					</script>
+							
+					<button class="pgbutton" onclick="location.href='<%= request.getContextPath() %>/ViewController?command=boardlist&currentPage=<%= lastPage %>'">&gt;&gt;</button>
+					
+					<% } %>
 				
+					</div>
+			</div>
+			<div style="text-align:right;">
 				<%
 					System.out.println(session.getAttribute("login")); //로그인 사용자 확인용
 					if(session.getAttribute("login")==null || session.getAttribute("login").equals(null)){
@@ -156,9 +205,7 @@
 				<%		
 					}
 				%>
-				</td>
-			</tr>
-		</table>
+			</div>
 	</div>
 	</main>
 	<div> 

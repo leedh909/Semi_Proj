@@ -33,8 +33,8 @@
 <style type="text/css">
 	.table_th{
 		padding: 20px 30px;
-		border-bottom: 1px solid;
 		font-size: 20pt;
+		text-align: center;
 	}
 	.boardtitle{
 		color: blue;
@@ -51,7 +51,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -81,24 +81,20 @@
         </div>
     </div>
     <!-- Hero End -->
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<div style="padding: 40px">
+	<div style="padding: 40px; padding-right: 200px;padding-left: 200px;">
 	<form action="${pageContext.request.contextPath}/answer.do" method="post">
 		<input type="hidden" name="command" value="qnawrite" >
-		<table border="1">
+		<table border="3">
 			<tr>
-				<th>ID</th>
+				<th class="table_th">ID</th>
 				<td><input type="text" name="id" value="<%=id%>" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<th>제목</th>
+				<th class="table_th">제목</th>
 				<td><input type="text" name="title"></td>
 			</tr>
 			<tr>
-				<th>내용</th>
+				<th class="table_th">내용</th>
 				<td><textarea rows="10" cols="60" name="content"></textarea>
 			</tr>
 			<tr>

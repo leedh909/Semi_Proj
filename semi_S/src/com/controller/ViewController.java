@@ -29,6 +29,7 @@ import com.dto.GraphicDto;
 import com.dto.GuideViewDto;
 import com.dto.MapDto;
 import com.dto.NewsDto;
+import com.dto.PagingDto;
 
 @WebServlet("/ViewController")
 public class ViewController extends HttpServlet {
@@ -54,10 +55,36 @@ public class ViewController extends HttpServlet {
 		}else if(command.equals("boardlist")) {
 			
 			BoardDao dao = new BoardDao();
-			List<BoardDto> list = dao.selectAll();
-			request.setAttribute("allList", list);
-			RequestDispatcher dispath = request.getRequestDispatcher("boardlist.jsp");
+			int currentPage;	
+			int limit;			
+			int lastPage;		 
+			int startPage;		
+			int endPage;		
 			
+			int listCt = dao.listCount();
+
+			limit = 5;
+			currentPage = 1;
+
+			if(request.getParameter("currentPage") != null) {
+				currentPage = Integer.parseInt(request.getParameter("currentPage"));
+			}
+
+			lastPage = (int)((double)listCt/limit + 0.9);
+			startPage = (((int)((double)currentPage/limit + 0.9)) - 1) * limit + 1;
+			endPage = startPage + limit - 1;
+			
+			if(lastPage < endPage) {
+				endPage = lastPage;
+			
+			}
+			
+			PagingDto pg = new PagingDto(currentPage, listCt, limit, lastPage, startPage, endPage);	
+			List<BoardDto> list = dao.pagingSelectAll(currentPage);	
+			request.setAttribute("allList", list);
+			request.setAttribute("pg", pg);
+
+			RequestDispatcher dispath = request.getRequestDispatcher("boardlist.jsp");
 			dispath.forward(request, response);
 			
 		}else if(command.equals("pcrec")) {

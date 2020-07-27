@@ -61,7 +61,7 @@
 <script>
 
 	function title_onClick(url) {
-		location.href = url;
+		window.open(url);
 	}
 
 </script>
@@ -107,7 +107,7 @@
       		<c:forEach var="dto" items="${list}">
 			<article>
 			
-			<a href="${dto.url}" class="image">
+			<a href="${dto.url}" class="image" target="_blank">
 			<img src="${dto.img}" alt="" width="150" height="250" />
 			</a>
 			<div>

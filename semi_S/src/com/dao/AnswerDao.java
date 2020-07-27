@@ -288,4 +288,54 @@ public class AnswerDao extends JDBCTemplate {
     	  
     	  return res;
       }
+      public List<AnswerDto> qnawaiting(int[] seq){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<AnswerDto> res = new ArrayList<AnswerDto>();
+		String sql = " SELECT * FROM QNA_B WHERE Q_GPNUM=? AND (SELECT COUNT(*) FROM QNA_B WHERE Q_GPNUM=?)<2 ";
+			
+			
+		try {
+			for(int i=0;i<seq.length;i++) {
+				pstm = con.prepareStatement(sql);
+				pstm.setInt(1, seq[i]);
+				pstm.setInt(2, seq[i]);
+				
+				System.out.println("03.query 준비: " + sql+"(추가된 번호:"+seq[i]+")");
+				
+				rs=pstm.executeQuery();
+				System.out.println(rs);
+				System.out.println("04.query 실행 및 리턴");
+				while(rs.next()) {
+					AnswerDto dto = new AnswerDto();
+					dto.setQnanum(rs.getInt(1));
+					dto.setId(rs.getString(2));
+					dto.setQ_gpnum(rs.getInt(3));
+					dto.setQ_gpseq(rs.getInt(4));
+					dto.setTabletab(rs.getInt(5));
+					dto.setTitle(rs.getString(6));
+					dto.setContent(rs.getString(7));
+					dto.setRegdate(rs.getDate(8));
+					dto.setVcount(rs.getInt(9));
+					
+					res.add(dto);
+					
+				}
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05.db 종료\n");
+		}
+		
+		return res;
+	}
+      
+      
 }

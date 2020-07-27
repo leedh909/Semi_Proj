@@ -32,9 +32,27 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/table.css">
 </head>
 <style type="text/css">
-	.table_th{
-		padding: 20px 30px;
-		font-size: 20pt;
+	
+	#writeform {
+		display:table;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.tr{
+		padding: 10px 10px;
+		font-size: 15pt;
+		background-color:none;
+		border-bottom:3px solid;
+	}
+	#writer{
+		text-size:10px;
+		border:none;
+		outline:none;
+		background-color:none;
+		
+	}
+	#size {
+		font-size:25px;
 	}
 </style>
 <%
@@ -47,7 +65,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="${pageContext.request.contextPath}/assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -70,31 +88,36 @@
             </div>
         </div>
     </div>
-    <div style="padding: 40px">
-	<form action="${pageContext.request.contextPath}/BoardController2" method="post">
+    <div style="padding: 30px;">
+	<form action="${pageContext.request.contextPath}/BoardController2" method="post" id="writeform">
 		<input type="hidden" name="command" value="boardwrite">
-		<table border="3" >
-			<col width="100px"><col width="100%">
-			 
-			<tr>
-				<th class="table_th">WRITER</th>
-				<td><input type="text" name="writer" value="<%=id%>" readonly="readonly"></td>
-			</tr>
-			<tr>
-				<th class="table_th">TITLE</th>
-				<td><input type="text" name="title"></td>
-			</tr>
-			<tr>
-				<th class="table_th">CONTENT</th>
-				<td><textarea rows="20" cols="100" name="content"></textarea> </td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right">				
-					<input type="submit" value="작성">
-					<input type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=boardlist'">					
-				</td>
-			</tr>
-		</table>
+			<div class="tr">
+				<div class="table_wr">
+					<span id="size" style="padding-right:50px;">WRITER</span>
+					<input id="writer" type="text" name="writer" value="<%=id%>" readonly="readonly">
+					<br>
+				</div>
+			</div>
+			<div class="tr">
+				<div>
+					<span id="size" style="padding-right:80px;">TITLE</span> 
+					<input style="width:625px;" type="text" name="title">
+					
+				</div>
+			</div>
+			<div class="tr">
+				<div>
+					<span id="size" style="float:left; padding-right:30px;">CONTENT</span>
+					<textarea rows="20" cols="60" name="content"></textarea>
+				</div>
+				</div>
+			<div>
+				<div align="right">	
+				<br>	
+					<input style="padding:5px 35px;" type="submit" value="작성"> &nbsp;&nbsp;
+					<input style="padding:5px 35px;" type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=boardlist'">					
+				</div>
+			</div>
 	</form>
 	</div>
 	</main>

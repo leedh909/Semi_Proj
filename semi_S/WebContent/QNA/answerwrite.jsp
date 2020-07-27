@@ -10,36 +10,57 @@
 <head>
 <meta charset="UTF-8">
 <title> GRAPHCORE | Q&A </title>
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.css">
-<link rel="stylesheet" href="assets/css/flaticon.css">
-<link rel="stylesheet" href="assets/css/hamburgers.min.css">
-<link rel="stylesheet" href="assets/css/gijgo.css">
-<link rel="stylesheet" href="assets/css/animate.min.css">
-<link rel="stylesheet" href="assets/css/animated-headline.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
-<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/css/nice-select.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/table.css">
-<link rel="stylesheet" href="assets/css/logostyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slicknav.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flaticon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/hamburgers.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/gijgo.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animate.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animated-headline.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/themify-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slick.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/nice-select.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/table.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/logostyle.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
 	.table_th{
 		padding: 20px 30px;
-		border-bottom: 1px solid;
 		font-size: 20pt;
 	}
 	.boardtitle{
 		color: blue;
 	}
+		#writeform {
+		display:table;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.tr{
+		padding: 10px 10px;
+		font-size: 15pt;
+		background-color:none;
+		border-bottom:3px solid;
+	}
+	#writer{
+		text-size:10px;
+		border:none;
+		outline:none;
+		background-color:none;
+		
+	}
+	#size {
+		font-size:25px;
+	}
+	
 </style>
 </head>
 <%
@@ -52,7 +73,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -83,31 +104,36 @@
     </div>
     <!-- Hero End -->
 <body>
-<div style="padding: 40px">
-<form action="answer.do" method="post">
+<div style="padding: 30px;">
+<form action="answer.do" method="post" id="writeform">
 	<input type="hidden" name="command" value="answerwrite" >
 	<input type="hidden" name="parentboardno" value="${parent.qnanum }">
-	<table border="3" >
-		<tr>
-			<th class="table_th">ID</th>
-			<td><input type="text" name="id" value="<%=id%>" readonly="readonly"></td>
-		</tr>
-		<tr>
-			<th class="table_th">제목</th>
-			<td><input type="text" name="title" value="->관리자 re:${parent.title }" readonly="readonly"></td>
-		</tr>
-		<tr>
-			<th class="table_th">내용</th>
-			<td><textarea rows="20" cols="60" name="content" ></textarea></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right">
-				<input type="submit" value="작성" >
-				<input type="button" value="취소" 
+		<div class="tr">
+			<div class="table_th">
+				<span id="size" style="padding-right:50px;">WRITER</span>
+				<input id="writer" type="text" name="id" value="<%=id%>" readonly="readonly">
+			</div>
+		</div>
+		<div class="tr">
+			<div class="table_th">
+				<span id="size" style="padding-right:80px;">TITLE</span>
+				<input id="writer" type="text" name="title" value="->관리자 re:${parent.title }" readonly="readonly">
+			</div>
+		</div>
+		<div class="tr">
+			<div class="table_th">
+				<span id="size" style="float:left; padding-right:30px;">CONTENT</span>
+				<textarea rows="10" cols="60" name="content" ></textarea>
+			</div>
+		</div>
+		<div>
+			<div align="right">
+			<br>
+				<input style="padding:5px 25px;" type="submit" value="작성" >
+				<input style="padding:5px 25px;" type="button" value="취소" 
 				onclick="location.href='${pageContext.request.contextPath}/ViewController?command=QNAlist'">	
-			</td>
-		</tr>
-		</table>
+			</div>
+		</div>
 	</form>
 </div>
 </main>

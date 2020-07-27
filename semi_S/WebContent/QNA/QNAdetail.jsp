@@ -12,32 +12,32 @@
 <head>
 <meta charset="UTF-8">
 <title> GRAPHCORE | Q&A </title>
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.css">
-<link rel="stylesheet" href="assets/css/flaticon.css">
-<link rel="stylesheet" href="assets/css/hamburgers.min.css">
-<link rel="stylesheet" href="assets/css/gijgo.css">
-<link rel="stylesheet" href="assets/css/animate.min.css">
-<link rel="stylesheet" href="assets/css/animated-headline.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
-<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/css/nice-select.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/table.css">
-<link rel="stylesheet" href="assets/css/logostyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slicknav.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flaticon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/hamburgers.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/gijgo.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animate.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animated-headline.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/themify-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slick.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/nice-select.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/table.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/logostyle.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
 	.table_th{
 		padding: 20px 30px;
-		border-bottom: 1px solid;
 		font-size: 20pt;
+		text-align:center;
 	}
 	.boardtitle{
 		color: blue;
@@ -61,7 +61,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/gcB.png" alt="">
                 </div>
             </div>
         </div>
@@ -92,26 +92,26 @@
     </div>
     <!-- Hero End -->
 <body>
-<div style="padding: 40px">
-<table border="1">
+<div style="padding: 40px; padding-right: 200px;padding-left: 200px;">
+<table border="2">
 	<tr>
-		<th>번호</th>
+		<th class="table_th">번호</th>
 		<td>${dto.qnanum }</td>
 	</tr>
 	<tr>
-		<th>ID</th>
+		<th class="table_th">ID</th>
 		<td>${dto.id }</td>
 	</tr>
 	<tr>
-		<th>작성일</th>
+		<th class="table_th">작성일</th>
 		<td>${dto.regdate }</td>
 	</tr>
 	<tr>
-		<th>제목</th>
+		<th class="table_th">제목</th>
 		<td>${dto.title }</td>
 	</tr>
 	<tr>
-		<th>내용</th>
+		<th class="table_th">내용</th>
 		<td><textarea rows="10" cols="60" readonly="readonly">${dto.content }</textarea></td>
 	</tr>
 	<tr>

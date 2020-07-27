@@ -16,7 +16,7 @@
 <%
 	List<LoginDto> list = (List<LoginDto>)request.getAttribute("id"); 
 %>
-<link rel="stylesheet" href="assets/css/logostyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/logostyle.css">
 <body>
 <header>
     <!--? Header Start -->
@@ -28,7 +28,7 @@
                     <div class="col-xl-2 col-lg-2 col-md-1">
                        <div class="no-drag">
                             <div>
-                               <a href="${pageContext.request.contextPath}/ViewController?command=index"><img src="assets/img/logo/gc.png"></a>
+                               <a href="${pageContext.request.contextPath}/ViewController?command=index"><img src="${pageContext.request.contextPath}/assets/img/logo/gc.png"></a>
                             </div>
                        </div>
                     </div>

@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/table.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script type="text/javascript">
 	function idChk(){
 		var doc = document.getElementsByName("id")[0];
@@ -93,8 +94,11 @@
 	}
 	
 	.b01_simple_rollover {
+	    text-align:center;
+	    width:100%;
+	    font-size:20px;
 	    color: #ffffff;
-	    padding: 10px;
+	    padding: 5px;
 	    background-color: #212529;
 	}
 	
@@ -104,15 +108,30 @@
 	}
 	
 	.font{
-		font-size: 16px;
 		text-align: left;
+		width: 100%;
+	  	overflow: hidden;
+	  	font-size: 20px;
+	  	padding: 8px 0;
+	  	margin: 8px 0;
+	  	border-bottom:1px solid;
+	}
+	
+	.font input {
+		border:none;
+		outline: none;
+		font-size:18px;
+		width:80%;
+		float:left;
+		margin: 0 10px;
+		
 	}
 	
 	.bnt2{
-		padding-top: 5px;
+		padding-top: 10px;
 		padding-bottom: 4px;
 		border-style: none;
-		font-size: 14px;
+		font-size: 15px;
 		color: #ffffff;
 		background-color: #212529;
 		position: relative;
@@ -122,6 +141,17 @@
 	    -webkit-user-select: none;
 	    cursor: default;
 	}
+	
+	#registform{
+		display:table;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.idlabel{
+		text-align:center;
+	}
+	
 </style>
     
 </head>
@@ -147,41 +177,33 @@
     <!-- Hero End -->
 	<br>
 	<form action="login.do" method="post" id="registform">
+		<div class="regist-box">
 		<input type="hidden" name="command" value="regist">
-		<div style="width: 400px;">
 		
-			<table>
-				<tr>
-					<th class="font">ID</th>
-					<td>
-						<input type="text" name="id" title="n" placeholder="아이디" required="required">
-						<input class="bnt2 b01_simple_rollover" style="cursor: pointer;" type="button" value="중복 확인" onclick="idChk();">
-					</td>
-				</tr>
-				<tr>
-					<th class="font">PW</th>
-					<td><input type="password" name="pw" 
-									onclick="idChkConfirm();" placeholder="비밀번호" required="required"></td>
-				</tr>
-				<tr>
-					<th class="font">NAME</th>
-					<td><input type="text" name="name" 
-									onclick="idChkConfirm();" placeholder="이름" required="required"></td>
-				</tr>
-				<tr>
-					<th class="font">EMAIL</th>
-					<td><input type="text" name="email" 
-									onclick="idChkConfirm();" placeholder="이메일" required="required"></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
+			<div class="font">
+				<input type="text" name="id" title="n" placeholder="ID" required="required"> <br>	
+			</div>
+				<input class="bnt2 b01_simple_rollover" style="cursor: pointer;" type="button" value="중복 확인" onclick="idChk();">
+			<label class="idlabel">영어와 숫자를 혼합하여 3-11 글자만 허용됩니다.</label>			
+			<div class="font">
+				<input type="password" name="pw" 
+									onclick="idChkConfirm();" placeholder="PW" required="required"></td>
+			</div>
+			<div class="font">
+				<input type="text" name="name" 
+									onclick="idChkConfirm();" placeholder="NAME" required="required"></td>
+			</div>
+			<div class="font">
+				<input type="text" name="email" 
+									onclick="idChkConfirm();" placeholder="EMAIL" required="required"></td>
+			</div>
+			<div align="center">
 						<input style="cursor: pointer;" class="button_base b01_simple_rollover" type="submit" value="가입">
 						
-					</td>
-				</tr>
-			</table>
-		</div>	
+			</div>
+		</div>
 	</form>
+
 	 <div> 
 		<jsp:include page="footer.jsp" />
 	</div>

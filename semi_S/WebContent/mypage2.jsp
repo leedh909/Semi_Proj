@@ -61,9 +61,6 @@
 	List<BoardReDto> relist = (List<BoardReDto>)request.getAttribute("reList");
 	List<LoginDto> lglist = (List<LoginDto>)request.getAttribute("lglist");
 	List<AnswerDto> aslist = (List<AnswerDto>)request.getAttribute("aslist");	
-	String id = String.valueOf(session.getAttribute("login"));
-	
-	List<AnswerDto> awlist = (List<AnswerDto>)request.getAttribute("awlist");	
 	
 %>
 <body>
@@ -188,6 +185,8 @@
 						System.out.println("질문 목록: " + aslist);
 						for(AnswerDto asdto: aslist) {
 							System.out.println("질문: " + session.getAttribute("login") + "=" + asdto.getId());
+							if(session.getAttribute("login").equals(asdto.getId())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + asdto.getId());
 					%>
 		
 							<tr>
@@ -199,7 +198,7 @@
 								
 							</tr>
 					<%
-							
+							}
 						}
 			
 					%>
@@ -245,37 +244,41 @@
 				</table>
 			</div>
 			<div style="padding:100px;">
-				<h1 align="center">Q&A 답변 대기글 </h1>
+				<h1 align="center">내가 쓴 글 </h1>
 				<table border="3">
-					<col width="30px"><col width="300px">
-					<col width="30px"><col width="100px"><col width="50px"> 
+					<col width="50px"><col width="300px">
+					<col width="100px"><col width="100px"><col width="50px"> 
 					<thead>
-						<th class="table_th">질문 번호</th>
-						<th class="table_th">내용</th>
+						<th class="table_th">NO</th>
+						<th class="table_th">제목</th>
 						<th class="table_th">작성자</th>
-						<th class="table_th">작성일</th>
+						<th class="table_th">날짜</th>
 						<th class="table_th">조회수</th>
-						
 					</thead>
 					<%
-						System.out.println("qna 목록: " + awlist);
-						for(AnswerDto awdto: awlist) {
+						for(BoardDto dto:list) {
+							System.out.println("글: "+session.getAttribute("login") + "=" + dto.getWriter());
+							if(session.getAttribute("login").equals(dto.getWriter())) {
+								System.out.println("login:" + session.getAttribute("login") + "==" + dto.getWriter());
 					%>
+		
 							<tr>
-								<td><%=awdto.getQnanum() %></td>
-								<td><a class="qnatitle" href="answer.do?command=detail&qnanum=<%=awdto.getQnanum()%>"><%=awdto.getContent() %></a></td>
-								<td><%=awdto.getId() %></td>
-								<td><%=awdto.getRegdate() %></td>
-								<td><%=awdto.getVcount() %></td>
+								<td><%=dto.getSeq() %></td>
+								<td><a class="boardtitle" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getTitle() %></a></td>
+								<td><%=dto.getWriter() %></td>
+								<td><%=dto.getRegdate() %></td>
+								<td><%=dto.getVcount() %></td>
 								
 							</tr>
 					<%
-							
+							System.out.println("글 출력 완료");
+							}
 						}
-			
+						
 					%>
 					
 				</table>
+
 			</div>
 				
 			<div style="padding:100px;">
@@ -315,9 +318,10 @@
 					
 				</table>
 			</div>
-		<%
+	<%
 		}
-		%>
+	%>
+		
 	</form>
 	 <div> 
 		<jsp:include page="footer.jsp" />
