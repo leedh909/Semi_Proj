@@ -30,6 +30,7 @@ import com.dto.GuideViewDto;
 import com.dto.MapDto;
 import com.dto.NewsDto;
 import com.dto.PagingDto;
+import com.dto.RamDto;
 
 @WebServlet("/ViewController")
 public class ViewController extends HttpServlet {
@@ -100,9 +101,11 @@ public class ViewController extends HttpServlet {
 			 List<GuideViewDto> list = dao.selectAll();
 			 List<GraphicDto> gList = dao.selectGpu();
 			 List<CoolerDto> cList = dao.selectCooler();
+			 List<RamDto> rList = dao.selectRam();
 			request.setAttribute("list", list);
 			request.setAttribute("gList", gList);
 			request.setAttribute("cList", cList);
+			request.setAttribute("rList", rList);
 			 String def = "1";
 			request.setAttribute("dto", dto);
 			request.setAttribute("def", def);

@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | 찜한 PC </title>
+<title> COMQUEST | 찜한 PC </title>
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 <!-- CSS here -->
@@ -34,7 +34,7 @@
 </script>
 <style type="text/css">
 	.table_th{
-		text-align:center;
+		text-align:left;
 		padding: 20px 30px;
 		border-bottom: 1px solid;
 		font-size: 20pt;
@@ -45,7 +45,26 @@
 	div#backbtn{
 		text-align:center;
 	}
-	
+	.tr {
+		background-color:none;
+		border-bottom:2px solid;
+		border-color:gray;
+		opacity:0.3;
+	}
+	.buttonset1{
+		border-radius: 5px;
+		background-color: red;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	.buttonset2{
+		border-radius: 5px;
+		background-color: skyblue;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
 </style>
     
 </head>
@@ -73,6 +92,8 @@
     </div>
     <!-- Hero End -->
 	<br>
+	<div style="width:1200px; padding-left:500px;">
+	
 	<form action="mypage.do?command=favpc" method="post" id="favpc">
         <div style="padidng:30px;" >
         <h1 align="center"><%=id %> 님의 PC 목록</h1><br><br>
@@ -84,7 +105,7 @@
 
 		%>   
     		<h2></h2>
-	    	<table border="3">
+	    	<table border="0">
             	<col width="300px"><col width="100px"><col width="100px">
 				<thead>
 					<tr>
@@ -143,8 +164,10 @@
 				<tr class="favd">
 					<td></td>
 					<td></td>
-					<td><input type="button" value="삭제" 
+					<td><input type="button" value="삭제" class="buttonset1" 
 					onclick="location.href='mypage.do?command=deletepc&favnum=<%=dto.getFavNum()%>'"></td>	
+					<div class="tr">
+					</div>
 	        </table>
 	        <br><br><br>
         <%
@@ -154,11 +177,11 @@
         
        </div> 
        <div id="backbtn">
-       		<input type="button" value="뒤로가기" onclick="location.href='mypage.do?command=mypage'">
+       		<input type="button" value="뒤로가기" class="buttonset2" onclick="location.href='mypage.do?command=mypage'">
        </div>
        <br><br><br><br>
    </form>
-
+</div>
      
 			
 	<div> 

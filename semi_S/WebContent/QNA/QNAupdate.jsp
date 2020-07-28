@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | Q&A </title>
+<title> COMQUEST | Q&A </title>
 <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 <!-- CSS here -->
@@ -34,14 +34,42 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
-	.table_th{
-		padding: 20px 30px;
-		border-bottom: 1px solid;
-		font-size: 20pt;
+		#writeform {
+		display:table;
+		margin-left:auto;
+		margin-right:auto;
 	}
-	.boardtitle{
-		color: blue;
+	.tr{
+		padding: 10px 10px;
+		font-size: 15pt;
+		background-color:none;
 	}
+	#writer{
+		font-size:25px;
+		border:none;
+		outline:none;
+		background-color:none;
+		font-weight:bolder;
+		
+	}
+	#size {
+		font-size:25px;
+	}
+	.buttonset1{
+		border-radius: 5px;
+		background-color: skyblue;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	.buttonset2{
+		border-radius: 5px;
+		background-color: gray;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	
 </style>
 </head>
 <body>
@@ -73,7 +101,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70 text-center">
-                            <h2>QNA</h2>
+                            <h2>Q&A</h2>
                         </div>
                     </div>
                 </div>
@@ -85,38 +113,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="padding: 40px">
-	<form action="answer.do" method="post">
+<div style="padding: 30px;">
+	<form action="answer.do" method="post" id="writeform">
 		<input type="hidden" name="command" value="qnaupdate" >
 		<input type="hidden" name="qnanum" value="${dto.qnanum }">
-		<table border="1">
-			<tr>
-				<th>글번호</th>
-				<td>${dto.qnanum }</td>
-			</tr>
-			<tr>
-				<th>작성일</th>
-				<td>${dto.regdate }</td>
-			</tr>
-			<tr>
-				<th>ID</th>
-				<td>${dto.id }</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td><input type="text" name="title" value="${dto.title }"></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td><textarea rows="20" cols="100" name="content">${dto.content }</textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right">
-					<input type="submit" value="수정" >
-					<input type="button" value="취소" onclick="location.href=answer.do?command=detail&qnanum=${dto.qnanum}'">
-				</td>
-			</tr>
-		</table>
+		<div class="tr">
+			<div class="table_wr">
+				<span id="writer">${dto.id }</span>
+				&nbsp;&nbsp;&nbsp;
+				<span style="align:right; font-size:15px;">>${dto.regdate }</span>
+			</div>
+			<div class="tr">
+			<div>
+				<input type="text" name="title" value="${dto.title }">
+			</div>
+		</div>
+		<div class="tr">
+			<div>
+				<textarea rows="20" cols="100" name="content" style="resize:none;">${dto.content }</textarea>
+			</div>
+		</div>
+			<div align="right">
+			<br>
+				<input type="submit" value="수정" class="buttonset1">
+				<input type="button" value="취소" class="buttonset2"onclick="location.href='answer.do?command=detail&qnanum=${dto.qnanum}'">
+				
+			</div>
+		</div>
 	</form>
 	</div>
 </main>

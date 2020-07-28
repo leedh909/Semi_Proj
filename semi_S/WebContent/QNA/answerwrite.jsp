@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | Q&A </title>
+<title> COMQUEST | Q&A </title>
 <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 <!-- CSS here -->
@@ -32,14 +32,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
-	.table_th{
-		padding: 20px 30px;
-		font-size: 20pt;
-	}
-	.boardtitle{
-		color: blue;
-	}
-		#writeform {
+	#writeform {
 		display:table;
 		margin-left:auto;
 		margin-right:auto;
@@ -48,10 +41,9 @@
 		padding: 10px 10px;
 		font-size: 15pt;
 		background-color:none;
-		border-bottom:3px solid;
 	}
 	#writer{
-		text-size:10px;
+		font-size:20px;
 		border:none;
 		outline:none;
 		background-color:none;
@@ -60,7 +52,22 @@
 	#size {
 		font-size:25px;
 	}
-	
+	.buttonset1{
+		border-radius: 5px;
+		background-color: skyblue;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	.buttonset2{
+		border-radius: 5px;
+		background-color: gray;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+
+
 </style>
 </head>
 <%
@@ -95,7 +102,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70 text-center">
-                            <h2>QNA</h2>
+                            <h2>Q&A</h2>
                         </div>
                     </div>
                 </div>
@@ -110,27 +117,25 @@
 	<input type="hidden" name="parentboardno" value="${parent.qnanum }">
 		<div class="tr">
 			<div class="table_th">
-				<span id="size" style="padding-right:50px;">WRITER</span>
 				<input id="writer" type="text" name="id" value="<%=id%>" readonly="readonly">
+				<br>
 			</div>
 		</div>
 		<div class="tr">
-			<div class="table_th">
-				<span id="size" style="padding-right:80px;">TITLE</span>
-				<input id="writer" type="text" name="title" value="->관리자 re:${parent.title }" readonly="readonly">
+			<div >
+				<input style="width:625px;" id="writer" type="text" name="title" value="->관리자 re:${parent.title }" readonly="readonly">
 			</div>
 		</div>
 		<div class="tr">
-			<div class="table_th">
-				<span id="size" style="float:left; padding-right:30px;">CONTENT</span>
-				<textarea rows="10" cols="60" name="content" ></textarea>
+			<div >
+				<textarea rows="20" cols="60" name="content" style="resize:none;" placeholder="답변을 작성해 주세요."></textarea>
 			</div>
 		</div>
 		<div>
-			<div align="right">
+			<div align="right" style="padding-right:55px;">
 			<br>
-				<input style="padding:5px 25px;" type="submit" value="작성" >
-				<input style="padding:5px 25px;" type="button" value="취소" 
+				<input style="padding:5px 25px; " type="submit" class="buttonset1" value="작성" >
+				<input style="padding:5px 25px;" type="button" class="buttonset2" value="취소" 
 				onclick="location.href='${pageContext.request.contextPath}/ViewController?command=QNAlist'">	
 			</div>
 		</div>
@@ -182,7 +187,7 @@
     <script src="./assets/js/mail-script.js"></script>
     <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
     
-    <!-- Jquery Plugins, main Jquery -->	
+    <!— Jquery Plugins, main Jquery —>	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
 

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | ID CHECK </title>
+<title> COMQUEST | ID CHECK </title>
 <script type="text/javascript">
 	onload=function(){
 		var id = opener.document.getElementsByName("id")[0].value;

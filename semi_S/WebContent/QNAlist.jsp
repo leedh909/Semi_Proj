@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | Q&A </title>
+<title> COMQUEST | Q&A </title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
 <script type="text/javascript">
 	function idinput(num){
@@ -50,9 +50,9 @@
 
 <style type="text/css">
 	.table_th{
-		padding: 20px 30px;
-		border-bottom: 2px solid;
-		font-size: 20pt;
+		padding: 20px 5px;
+		border-top: 2px solid;
+		font-size: 15pt;
 		text-align: center;
 	}
 	a{
@@ -62,7 +62,7 @@
 	.write{
 		padding: 10px 20px;
 		border-radius: 15px;
-		background-color: gray;
+		background-color: skyblue;
 		border:none;
 	}
 	
@@ -101,7 +101,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70 text-center">
-                            <h2>QNA</h2>
+                            <h2>Q&A</h2>
                         </div>
                     </div>
                 </div>
@@ -109,9 +109,8 @@
         </div>
     </div>
     <!-- Hero End -->
-    <br>
     <div style="padding:30px; height:800px; padding-right: 200px;padding-left: 200px;">
-	<table border="5" >
+	<table border="0" >
 		<col width="50px"><col width="100px">
 	   <col width="300px"><col width="100px">
 		<thead>
@@ -147,24 +146,22 @@
             </c:forEach>
          </c:otherwise>
       </c:choose>
-			<tr>
-				<td colspan="5" align="right">
+		</table>
+				<div colspan="5" align="right">
 				
 				<%
 					System.out.println(session.getAttribute("login")); //로그인 사용자 확인용
 					if(session.getAttribute("login")==null || session.getAttribute("login").equals(null)){
 				%>
-					<button class="write" onclick="idinput(1);">글쓰기</button>
+					<button class="write" onclick="idinput(1);" style="cursor:pointer;">글쓰기</button>
 				<%
 					}else{
 				%>
-					<button class="write" onclick="idinput(2);">글쓰기</button>
+					<button class="write" onclick="idinput(2);" style="cursor:pointer;">글쓰기</button>
 				<%		
 					}
 				%>
-				</td>
-			</tr>
-		</table>
+				</div>
 	</div>
 	</main>
 	</table>

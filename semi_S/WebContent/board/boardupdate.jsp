@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | 자유게시판 </title>
+<title> COMQUEST | 자유게시판 </title>
 	<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 	<!-- CSS here -->
@@ -38,9 +38,40 @@
 
 %>
 <style type="text/css">
-	.table_th{
-		padding: 20px 30px;
-		font-size: 20pt;
+	#writeform {
+		display:table;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.tr{
+		padding: 10px 10px;
+		font-size: 15pt;
+		background-color:none;
+	}
+	#writer{
+		font-size:25px;
+		border:none;
+		outline:none;
+		background-color:none;
+		font-weight:bolder;
+		
+	}
+	#size {
+		font-size:25px;
+	}
+	.buttonset1{
+		border-radius: 5px;
+		background-color: skyblue;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	.buttonset2{
+		border-radius: 5px;
+		background-color: gray;
+		color:white;
+		border:none;
+		cursor:pointer;
 	}
 </style>
 <body>
@@ -73,41 +104,35 @@
             </div>
         </div>
     </div>
-	<div style="padding: 40px; padding-right: 200px;padding-left: 200px;">
-	<form action="BoardController2" method="post">
+	<div style="padding: 30px;">
+	<form action="BoardController2" method="post" id="writeform">
 		<input type="hidden" name="command" value="boardupdate">
 		<input type="hidden" name="seq" value="${dto.seq }">
-	<table border="3" >
-		<col width="100px"><col width="100%">
-		 
-		<tr>
-			<th class="table_th">NO</th>
-			<td>${dto.seq}</td>
-		</tr>
-		<tr>
-			<th class="table_th">DATE</th>
-			<td>${dto.regdate}</td>
-		</tr>
-		<tr>
-			<th class="table_th">WRITER</th>
-			<td>${dto.writer}</td>
-		</tr>
-		<tr>
-			<th class="table_th">TITLE</th>
-			<td><input type="text" name="title" value="${dto.title }"></td>
-		</tr>
-		<tr>
-			<th class="table_th">내용</th>
-			<td><textarea rows="20" cols="100" name="content">${dto.content }</textarea> </td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right">
-				<input type="submit" value="수정완료" >
-				<input type="button" value="취소" onclick="location.href='BoardController2?command=detail&seq=${dto.seq}'">				
-			</td>
-		</tr>
-	</table>
+		<div class="tr">
+			<div class="table_wr">
+				<span id="writer">${dto.writer}</span>
+				&nbsp;&nbsp;&nbsp;
+				<span style="align:right; font-size:15px;">>${dto.regdate}</span>
+				
+			</div>
+		</div>
+		<div class="tr">
+			<div>
+				<input type="text" name="title" value="${dto.title }">
+			</div>
+		</div>
+		<div class="tr">
+			<div>
+				<textarea rows="20" cols="100" name="content" style="resize:none;">${dto.content }</textarea>
+			</div>
+		</div>
+			<div align="right">
+			<br>
+				<input type="submit" value="수정" class="buttonset1" >
+				<input type="button" value="취소" class="buttonset2" onclick="location.href='BoardController2?command=detail&seq=${dto.seq}'">				
+			</div>
 	</form>
+	</div>
 	</main>
 	<div> 
 		<jsp:include page="../footer.jsp" />

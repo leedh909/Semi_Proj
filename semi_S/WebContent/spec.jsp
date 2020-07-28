@@ -17,7 +17,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title> GRAPHCORE | PC추천 </title>
+<title> COMQUEST | PC추천 </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -56,6 +56,14 @@
 			height:350px;
 			padding-top: 10px;
 		
+		}
+		.btn-default{
+			border-radius: 5px;
+			background-color: gray;
+			color:white;
+			border:none;
+			cursor:pointer;
+			
 		}
 		.content{
 			clear: both;
@@ -118,6 +126,15 @@
 	      padding-right:150px;
 	      cursor:pointer;
 	      }
+	      .buttonset1{
+	      	border-radius: 5px;
+			background-color: skyblue;
+			color:white;
+			border:none;
+			cursor:pointer;
+	      }
+	      
+	
 	</style>
 	<script type="text/javascript">
 
@@ -638,7 +655,7 @@
 				<tr>
 				  <!-- ------------------------------------------------------------------------ -->	
 					
-					<td colspan="4" style="text-align:right; width:100px; padding-right: 70px; height:40px;"><button type="submit" form="favsave" style="width:100px; border:none;"><h2 style="color:black;">저장</h2></button></td>
+					<td colspan="4" style="text-align:right; width:100px; padding-right: 50px; height:40px;"><button type="submit" form="favsave" class="buttonset1" style="width:100px; border:none; cursor:pointer;">저장</button></td>
 				
 				<!-- ------------------------------------------------------------------------ -->	
 					
@@ -662,7 +679,7 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">×</span></button>
 		        <h4 class="modal-title" id="myModalLabel1" style=text-align:left>제품 목록</h4>
 		      </div>
 		      <div class="modal-body">
@@ -766,17 +783,17 @@
 						<th>가격</th>
 					</tr>
 					<c:choose>
-						<c:when test="${empty list }">
+						<c:when test="${empty rList }">
 							<tr>
 								<td colspan="3">empty</td>
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach var="dto" items="${list }">
+							<c:forEach var="dto" items="${rList }">
 								<tr>
-									<td><img class="modalRamImg" src="assets/part/RAM/${dto.ramPic}" width="50px;" height="50px;"></td>
-									<td><div class="modalRamName" >${dto.ram}</div></td>
-									<td><div class="modalRamPrice">${dto.ramPrice}</div></td>
+									<td><img class="modalRamImg" src="assets/part/RAM/${dto.pic}" width="50px;" height="50px;"></td>
+									<td><div class="modalRamName" >${dto.name}</div></td>
+									<td><div class="modalRamPrice">${dto.price}</div></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

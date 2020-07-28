@@ -2,9 +2,3 @@
 
 
 INSERT INTO MEMBER_B VALUES('ADMIN','관리자','ADMIN1234','ADMIN@kh.com','Y');
-
-
-
-
-
-

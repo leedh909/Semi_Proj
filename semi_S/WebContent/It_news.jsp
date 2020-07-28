@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> GRAPHCORE | IT NEWS </title>
+    <title> COMQUEST | IT NEWS </title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 	<!-- CSS here -->

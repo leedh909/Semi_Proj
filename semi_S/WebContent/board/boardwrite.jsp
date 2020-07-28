@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title> GRAPHCORE | 자유게시판 </title>
+    <title> COMQUEST | 자유게시판 </title>
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
 	<!-- CSS here -->
@@ -42,10 +42,9 @@
 		padding: 10px 10px;
 		font-size: 15pt;
 		background-color:none;
-		border-bottom:3px solid;
 	}
 	#writer{
-		text-size:10px;
+		font-size:20px;
 		border:none;
 		outline:none;
 		background-color:none;
@@ -53,6 +52,22 @@
 	}
 	#size {
 		font-size:25px;
+	}
+	.buttonset1{
+		
+		border-radius: 5px;
+		background-color: skyblue;
+		color:white;
+		border:none;
+		cursor:pointer;
+	}
+	.buttonset2{
+		
+		border-radius: 5px;
+		background-color: gray;
+		color:white;
+		border:none;
+		cursor:pointer;
 	}
 </style>
 <%
@@ -93,29 +108,26 @@
 		<input type="hidden" name="command" value="boardwrite">
 			<div class="tr">
 				<div class="table_wr">
-					<span id="size" style="padding-right:50px;">WRITER</span>
 					<input id="writer" type="text" name="writer" value="<%=id%>" readonly="readonly">
 					<br>
 				</div>
 			</div>
 			<div class="tr">
 				<div>
-					<span id="size" style="padding-right:80px;">TITLE</span> 
-					<input style="width:625px;" type="text" name="title">
+					<input style="width:625px;" type="text" name="title" placeholder="제목을 입력해 주세요.">
 					
 				</div>
 			</div>
 			<div class="tr">
 				<div>
-					<span id="size" style="float:left; padding-right:30px;">CONTENT</span>
-					<textarea rows="20" cols="60" name="content"></textarea>
+					<textarea rows="20" cols="65" name="content" style="resize:none;"placeholder="내용을 입력해 주세요."></textarea>
 				</div>
 				</div>
 			<div>
 				<div align="right">	
 				<br>	
-					<input style="padding:5px 35px;" type="submit" value="작성"> &nbsp;&nbsp;
-					<input style="padding:5px 35px;" type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=boardlist'">					
+					<input style="padding:5px 35px;" type="submit" value="작성" class="buttonset1"> &nbsp;&nbsp;
+					<input style="padding:5px 35px;" type="button" value="취소" class="buttonset2" onclick="location.href='${pageContext.request.contextPath}/ViewController?command=boardlist'">					
 				</div>
 			</div>
 	</form>

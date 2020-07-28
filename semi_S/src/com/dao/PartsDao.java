@@ -11,6 +11,7 @@ import com.dto.CoolerDto;
 import com.dto.FavPcDto;
 import com.dto.GraphicDto;
 import com.dto.GuideViewDto;
+import com.dto.RamDto;
 
 import common.JDBCTemplate;
 
@@ -182,6 +183,41 @@ public class PartsDao extends JDBCTemplate {
 				coolerDto.setPrice(rs.getInt(3));
 				coolerDto.setPic(rs.getString(4));
 				res.add(coolerDto);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("5. db 종료\n");
+		}
+		
+		return res;
+	}
+	public List<RamDto> selectRam(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<RamDto> res = new ArrayList<RamDto>();
+		String sql = "SELECT * FROM RAM_B";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("3.query 준비"+sql);
+			rs= pstm.executeQuery();
+			System.out.println("4. query 실행 및 리턴");
+			while(rs.next()) {
+				RamDto ramDto =new RamDto();
+				ramDto.setRamNum(rs.getInt(1));
+				ramDto.setName(rs.getString(2));
+				ramDto.setPrice(rs.getInt(3));
+				ramDto.setAmount(rs.getInt(4));
+				ramDto.setPic(rs.getString(5));
+				
+				res.add(ramDto);
 			}
 			
 		} catch (SQLException e) {

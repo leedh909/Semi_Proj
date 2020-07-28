@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> GRAPHCORE | 회원가입 </title>
+<title> COMQUEST | 회원가입 </title>
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 <!-- CSS here -->
